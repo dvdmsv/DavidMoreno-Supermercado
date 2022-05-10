@@ -6,8 +6,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		Supermercado superm = new Supermercado();
-		superm.buscarUsuario();
-		superm.crearUsuario();
+		superm.buscarProducto();
 	}
 
 }

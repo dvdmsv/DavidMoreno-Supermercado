@@ -13,13 +13,14 @@ public class InventarioDAO {
 		Conectar conn = new Conectar();
 		
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM INVENTARIO;");
-			preparedStatement.setString(1, nom);
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE NOMBRE_PRODUCTO LIKE ?");
+			preparedStatement.setString(1, "%" + nom + "%");
 			ResultSet resultado = preparedStatement.executeQuery();
 			while(resultado.next()) {
 				for(int i=1; i<resultado.getMetaData().getColumnCount(); i++) {
 					System.out.print(resultado.getString(i) + " | ");
 				}
+				System.out.println("");
 			}
 			
 		}catch(Exception e) {

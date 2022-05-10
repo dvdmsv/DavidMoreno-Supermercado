@@ -1,15 +1,13 @@
 package vista;
 
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class Ventana extends JFrame {
 	public Ventana() {
-		
-		
-		
-		
-		
+		this.setPreferredSize(new Dimension(400,300));
 		this.pack();
 		this.setVisible(true);	
 	}

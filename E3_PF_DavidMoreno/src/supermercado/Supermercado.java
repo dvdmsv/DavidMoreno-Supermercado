@@ -4,6 +4,7 @@ import conectar.InventarioDAO;
 import conectar.UsuarioDAO;
 import conectar.VentasDAO;
 import modelo.UsuarioDTO;
+import vista.Ventana;
 
 public class Supermercado {
 	private UsuarioDAO usuDAO = new UsuarioDAO();
@@ -31,8 +32,12 @@ public class Supermercado {
 	public void usuarioExiste(String nomUsu) {
 		if(usuDAO.usuarioExisteBD(nomUsu)) {
 			System.out.print("Permito la entrada");
+			Ventana v = new Ventana();
+			v.botonRegistrado();
 		}else {
-			System.out.print("A donde vaaaas");;
+			System.out.print("A donde vaaaas");
+			Ventana v = new Ventana();
+			v.botonNoRegistrado();
 		}
 	}
 }

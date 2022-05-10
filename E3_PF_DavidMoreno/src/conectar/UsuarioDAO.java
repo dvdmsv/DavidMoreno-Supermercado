@@ -34,11 +34,11 @@ public class UsuarioDAO {
 		Conectar conn = new Conectar();
 		
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("INSERT INTO USUARIOS VALUES(?,?,?,?);");
+			preparedStatement = conn.getConnect().prepareStatement("INSERT INTO USUARIOS VALUES(?,null,?,?);");
 			preparedStatement.setString(1, usuDTO.getNomUsu());
-			preparedStatement.setInt(2, usuDTO.getNumEmpl());
-			preparedStatement.setString(3, usuDTO.getContr());
-			preparedStatement.setString(4, usuDTO.getUsuAdmin());
+			//preparedStatement.setInt(2, usuDTO.getNumEmpl());
+			preparedStatement.setString(2, usuDTO.getContr());
+			preparedStatement.setString(3, usuDTO.getUsuAdmin());
 			preparedStatement.executeUpdate();
 			conn.desconectar();
 		}catch(Exception e) {

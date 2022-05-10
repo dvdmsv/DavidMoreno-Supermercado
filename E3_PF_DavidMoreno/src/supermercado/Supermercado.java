@@ -14,7 +14,7 @@ public class Supermercado {
 	public void crearUsuario() {
 		UsuarioDAO usuDAO = new UsuarioDAO();
 		
-		UsuarioDTO usuDTO = new UsuarioDTO("hola", 54, "admin", "F");
+		UsuarioDTO usuDTO = new UsuarioDTO("hola", 000, "admin", "F");
 		usuDAO.crearUsuarioBD(usuDTO);
 	}
 }

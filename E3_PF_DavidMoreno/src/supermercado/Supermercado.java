@@ -11,6 +11,11 @@ public class Supermercado {
 	private InventarioDAO invDAO = new InventarioDAO();
 	private VentasDAO venDAO = new VentasDAO();
 	
+	public void login() {
+		Ventana v = new Ventana();
+		v.login();
+	}
+	
 	public void buscarUsuario(String nomUsu) {
 		usuDAO.buscarUsuarioBD(nomUsu);
 	}

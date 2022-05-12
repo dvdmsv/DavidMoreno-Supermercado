@@ -5,11 +5,18 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import vista.login.PanelLogin;
+
 public class Ventana extends JFrame {
 	public Ventana() {
 		this.setPreferredSize(new Dimension(400,300));
 		this.pack();
 		this.setVisible(true);	
+	}
+	
+	public void login() {
+		PanelLogin pl = new PanelLogin();
+		this.add(pl);
 	}
 	
 	public void botonNoRegistrado() {

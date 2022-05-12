@@ -17,7 +17,8 @@ PRECIO_PRODUCTO DECIMAL(4,2),
 IVA_PRODUCTO DECIMAL(3,2)) AUTO_INCREMENT=20001;
 
 CREATE TABLE VENTAS
-(CODIGO_PRODUCTO INT,
+(NUMERO_VENTA INT PRIMARY KEY AUTO_INCREMENT,
+CODIGO_PRODUCTO INT,
 NOMBRE_PRODUCTO VARCHAR(20),
 FAMILIA_PRODUCTO VARCHAR(20),
 CANTIDAD_PRODUCTO_VENDIDO INT CHECK(CANTIDAD_PRODUCTO_VENDIDO>=0),
@@ -65,6 +66,34 @@ INSERT INTO INVENTARIO VALUES(NULL, "Alubia pinta 1Kg", "Legumbres", 20, 1.99, 1
 INSERT INTO INVENTARIO VALUES(NULL, "Garbanzos 1Kg", "Legumbres", 20, 2.59, 1.04);
 
 /*IVA Reducido*/
+INSERT INTO INVENTARIO VALUES(NULL, "Pan de picos", "Cereales", 20, 0.89, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Pan de pueblo", "Cereales", 20, 1.15, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Barra de pan", "Cereales", 20, 0.35, 1.10);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Agua mineral 1.5L", "Agua", 20, 0.21, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Agua mineral 5L", "Agua", 20, 0.52, 1.10);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Refresco de limon", "Refrescos", 20, 0.49, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Refresco de cola 1L", "Refrescos", 20, 0.49, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Refresco de te 1L", "Refrescos", 20, 0.74, 1.10);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Judias verdes en bote", "Verduras", 20, 0.85, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Guisantes finos en bote", "Verduras", 20, 0.55, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Fabada asturiana en bote", "Legumbres", 20, 1.26, 1.10);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Compresas ultrafinas", "Higiene Femenina", 20, 1.50, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Toallitas intimas", "Higiene Femenina", 20, 1.44, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Gel intimas", "Higiene Femenina", 20, 1.40, 1.10);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Tiras de maíz barbacoa 150g", "Snacks", 20, 0.85, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Conos de maíz queso 150g", "Snacks", 20, 0.68, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Galletas saladas 350g", "Snacks", 20, 0.85, 1.10);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Dentrifico anticaries", "Higiene", 20, 3.45, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Espuma de afeitar 250ml", "Higiene", 20, 0.71, 1.10);
+INSERT INTO INVENTARIO VALUES(NULL, "Preservativo natural 12 ud", "Higiene", 20, 6.99, 1.10);
+
+
 
 
 

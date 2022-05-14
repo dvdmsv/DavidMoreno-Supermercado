@@ -1,5 +1,6 @@
 package vista.login;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
@@ -17,6 +18,12 @@ public class Usuario extends JPanel{
 		jtf = new JTextField(5);
 		this.add(jtf);
 		
+		
 		this.setLayout(new GridLayout(1, 2));
 	}
+
+	public JTextField getJtf() {
+		return jtf;
+	}
+	
 }

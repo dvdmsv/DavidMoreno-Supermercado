@@ -1,21 +1,20 @@
-package vista;
+package vista.login;
 
 import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import vista.login.PanelLogin;
-
-public class Ventana extends JFrame {
-	public Ventana() {
-		this.setPreferredSize(new Dimension(400,300));
+public class VentanaLogin extends JFrame {
+	private PanelLogin pl = new PanelLogin();
+	
+	public VentanaLogin() {
+		this.setPreferredSize(new Dimension(400,200));
 		this.pack();
 		this.setVisible(true);	
 	}
 	
 	public void login() {
-		PanelLogin pl = new PanelLogin();
 		this.add(pl);
 	}
 	
@@ -29,4 +28,11 @@ public class Ventana extends JFrame {
 		this.add(b2);
 	}
 
+	public PanelLogin getPl() {
+		return pl;
+	}
+
+	public void setPl(PanelLogin pl) {
+		this.pl = pl;
+	}
 }

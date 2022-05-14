@@ -4,16 +4,21 @@ import conectar.InventarioDAO;
 import conectar.UsuarioDAO;
 import conectar.VentasDAO;
 import modelo.UsuarioDTO;
-import vista.Ventana;
+import vista.login.VentanaLogin;
 
 public class Supermercado {
 	private UsuarioDAO usuDAO = new UsuarioDAO();
 	private InventarioDAO invDAO = new InventarioDAO();
 	private VentasDAO venDAO = new VentasDAO();
 	
+	public void run() {
+		this.login();
+	}
+	
 	public void login() {
-		Ventana v = new Ventana();
-		v.login();
+		VentanaLogin vL = new VentanaLogin();
+		vL.login();
+		
 	}
 	
 	public void buscarUsuario(String nomUsu) {
@@ -21,7 +26,6 @@ public class Supermercado {
 	}
 	
 	public void crearUsuario() {
-		
 		UsuarioDTO usuDTO = new UsuarioDTO("hola", 000, "admin", "F");
 		usuDAO.crearUsuarioBD(usuDTO);
 	}
@@ -34,15 +38,11 @@ public class Supermercado {
 		venDAO.anadirVentaBD(5, "pollo", "carnes", 5, "2022-05-10", 1000);
 	}
 	
-	public void usuarioExiste(String nomUsu) {
+	public boolean usuarioExiste(String nomUsu) {
 		if(usuDAO.usuarioExisteBD(nomUsu)) {
-			System.out.print("Permito la entrada");
-			Ventana v = new Ventana();
-			v.botonRegistrado();
+			return true;
 		}else {
-			System.out.print("A donde vaaaas");
-			Ventana v = new Ventana();
-			v.botonNoRegistrado();
+			return false;
 		}
 	}
 }

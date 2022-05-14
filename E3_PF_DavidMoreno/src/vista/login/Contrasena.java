@@ -21,4 +21,8 @@ public class Contrasena extends JPanel{
 		this.setLayout(new GridLayout(1, 2));
 	}
 
+	public JPasswordField getJpswf() {
+		return jpswf;
+	}
+
 }

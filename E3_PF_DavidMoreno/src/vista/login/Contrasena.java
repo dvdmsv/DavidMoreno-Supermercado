@@ -1,5 +1,6 @@
 package vista.login;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
@@ -19,6 +20,8 @@ public class Contrasena extends JPanel{
 		this.add(jpswf);
 		
 		this.setLayout(new GridLayout(1, 2));
+
+		this.setBackground(Color.decode("#04FCFC"));
 	}
 
 	public JPasswordField getJpswf() {

@@ -1,5 +1,6 @@
 package vista.login;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -12,7 +13,7 @@ public class Usuario extends JPanel{
 	private JTextField jtf;
 	
 	public Usuario() {
-		lb1 = new JLabel("Nombre de usuario");
+		lb1 = new JLabel("Nombre de usuario ");
 		this.add(lb1);
 		
 		jtf = new JTextField(5);
@@ -20,6 +21,7 @@ public class Usuario extends JPanel{
 		
 		
 		this.setLayout(new GridLayout(1, 2));
+		this.setBackground(Color.decode("#04FCFC"));
 	}
 
 	public JTextField getJtf() {

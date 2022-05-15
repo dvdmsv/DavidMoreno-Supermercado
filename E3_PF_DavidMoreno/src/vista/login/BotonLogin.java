@@ -1,5 +1,6 @@
 package vista.login;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -20,6 +21,7 @@ public class BotonLogin extends JPanel{
 		this.usuario=usuario;
 		this.contrasena=contrasena;
 		this.mensajeErr=mensajeErr;
+		this.setBackground(Color.decode("#04FCFC"));
 		
 		b1 = new JButton("Iniciar Sesion");
 		this.add(b1);

@@ -1,5 +1,6 @@
 package vista.login;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
@@ -11,9 +12,9 @@ public class PanelLogin extends JPanel{
 	private BotonLogin botLogin;
 	private MensajeError mensajeErr;
 	
-	
 	public PanelLogin() {
 		this.setBorder(new TitledBorder("Iniciar sesion"));
+		this.setBackground(Color.decode("#04FCFC"));
 		usuario = new Usuario();
 		contrasena = new Contrasena();
 		mensajeErr = new MensajeError();

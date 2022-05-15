@@ -1,5 +1,6 @@
 package vista.controlador;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,5 +24,6 @@ public class ListenerLimpiarLogin implements ActionListener{
 		usuario.getJtf().setText("");
 		contrasena.getJpswf().setText("");
 		mensajeErr.getLb().setText("");
+		mensajeErr.setBackground(Color.decode("#04FCFC"));
 	}
 }

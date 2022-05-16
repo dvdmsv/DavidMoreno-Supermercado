@@ -24,6 +24,7 @@ public class ListenerLogin implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(superm.loginCorrecto(usuario.getJtf().getText(), String.valueOf(contrasena.getJpswf().getPassword()))) {
+			mensajeErr.getLb().setForeground(Color.BLACK);
 			mensajeErr.getLb().setText("Login correcto");
 		} else {
 			mensajeErr.getLb().setText("Usuario " + usuario.getJtf().getText() + " no existe o contraseña incorrecta");

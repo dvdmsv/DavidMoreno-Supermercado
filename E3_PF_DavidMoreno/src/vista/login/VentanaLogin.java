@@ -12,14 +12,14 @@ public class VentanaLogin extends JFrame {
 	
 	public VentanaLogin() {
 		super("Galimerca");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setPreferredSize(new Dimension(500,300));
 		this.setBackground(Color.decode("#04FCFC"));
 		this.setContentPane(fondo);
-		this.setPreferredSize(new Dimension(500,300));
-		this.pack();
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
 	}
 	
 	public void login() {

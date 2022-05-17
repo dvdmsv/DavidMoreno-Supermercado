@@ -11,14 +11,16 @@ public class PanelLogin extends JPanel{
 	private Contrasena contrasena;
 	private BotonLogin botLogin;
 	private MensajeError mensajeErr;
+	private VentanaLogin vL;
 	
-	public PanelLogin() {
+	public PanelLogin(VentanaLogin vL) {
+		this.vL = vL;
 		this.setBorder(new TitledBorder("Iniciar sesion"));
 		this.setBackground(Color.decode("#04FCFC"));
 		usuario = new Usuario();
 		contrasena = new Contrasena();
 		mensajeErr = new MensajeError();
-		botLogin = new BotonLogin(usuario, contrasena, mensajeErr);
+		botLogin = new BotonLogin(usuario, contrasena, mensajeErr, vL);
 		
 		this.add(usuario);
 		this.add(contrasena);

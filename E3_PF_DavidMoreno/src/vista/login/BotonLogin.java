@@ -16,11 +16,13 @@ public class BotonLogin extends JPanel{
 	private MensajeError mensajeErr;
 	private ListenerLogin lisLog;
 	private ListenerLimpiarLogin limpLogin;
+	private VentanaLogin vL;
 	
-	public BotonLogin(Usuario usuario, Contrasena contrasena, MensajeError mensajeErr) {
+	public BotonLogin(Usuario usuario, Contrasena contrasena, MensajeError mensajeErr,  VentanaLogin vL) {
 		this.usuario=usuario;
 		this.contrasena=contrasena;
 		this.mensajeErr=mensajeErr;
+		this.vL = vL;
 		this.setBackground(Color.decode("#04FCFC"));
 		
 		b1 = new JButton("Iniciar Sesion");
@@ -30,7 +32,7 @@ public class BotonLogin extends JPanel{
 		this.add(b2);
 		
 		
-		lisLog = new ListenerLogin(usuario, contrasena, mensajeErr);
+		lisLog = new ListenerLogin(usuario, contrasena, mensajeErr, vL);
 		b1.addActionListener(lisLog);
 		
 		limpLogin = new ListenerLimpiarLogin(usuario, contrasena, mensajeErr);

@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class VentanaLogin extends JFrame {
-	private PanelLogin pl = new PanelLogin();
+	private PanelLogin pl = new PanelLogin(this);
 	FondoImagen fondo = new FondoImagen();
 	
 	public VentanaLogin() {
@@ -26,14 +26,8 @@ public class VentanaLogin extends JFrame {
 		this.add(pl);
 	}
 	
-	public void botonNoRegistrado() {
-		JButton b1 = new JButton("Boton no registrado");
-		this.add(b1);
-	}
-	
-	public void botonRegistrado() {
-		JButton b2 = new JButton("Boton registrado");
-		this.add(b2);
+	public void cerrarVentana() {
+		this.dispose();
 	}
 
 	public PanelLogin getPl() {

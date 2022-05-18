@@ -28,12 +28,17 @@ public class ListenerLogin implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(superm.loginCorrecto(usuario.getJtf().getText(), String.valueOf(contrasena.getJpswf().getPassword()))) {
-			mensajeErr.getLb().setForeground(Color.BLACK);
-			mensajeErr.getLb().setText("Login correcto");
-			vL.setVisible(false);
-			vL.dispose();
-			VentanaPanelUsuario vpU = new VentanaPanelUsuario();
-			
+			if(superm.loginAdmin(usuario.getJtf().getText(), String.valueOf(contrasena.getJpswf().getPassword()))) {
+				System.out.println("el usuario es admin");
+				
+			}else {
+				System.out.println("el usuario NO ES admin");
+				mensajeErr.getLb().setForeground(Color.BLACK);
+				mensajeErr.getLb().setText("Login correcto");
+				vL.setVisible(false);
+				vL.dispose();
+				VentanaPanelUsuario vpU = new VentanaPanelUsuario();
+			}
 		} else {
 			mensajeErr.getLb().setText("Usuario " + usuario.getJtf().getText() + " no existe o contraseña incorrecta");
 			mensajeErr.setBackground(Color.BLACK);

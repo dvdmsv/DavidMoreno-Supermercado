@@ -29,6 +29,14 @@ public class Supermercado {
 		}
 	}
 	
+	public boolean loginAdmin(String nom, String contra) {
+		if(usuDAO.loginAdminBD(nom, contra)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public void buscarUsuario(String nomUsu) {
 		usuDAO.buscarUsuarioBD(nomUsu);
 	}

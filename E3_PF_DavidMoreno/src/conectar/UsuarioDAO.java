@@ -79,6 +79,27 @@ public class UsuarioDAO {
 		return correct;
 	}
 	
+	public boolean loginAdminBD(String nom, String contra) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		boolean correct = false;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM USUARIOS WHERE NOMBRE_USUARIO=? AND CONTRASENA=? AND USUARIO_ADMIN='T';");
+			preparedStatement.setString(1, nom);
+			preparedStatement.setString(2, contra);
+			ResultSet resultado = preparedStatement.executeQuery();
+			if(resultado.isBeforeFirst()) {
+				correct = true;
+			}else {
+				correct = false;
+			}
+			conn.desconectar();
+		}catch(Exception e) {
+			
+		}
+		return correct;
+	}
+	
 	public void crearUsuarioBD(UsuarioDTO usuDTO) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();

@@ -3,14 +3,20 @@ package vista.panelusuario;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 
 public class VentanaPanelUsuario extends JFrame{
-	private JLabel lb1;
+	private PanelUsuario panelUsuario;
+	private JMenuBar menu;
 	
 	public VentanaPanelUsuario() {
-		lb1 = new JLabel("Panel de usuario");
-		this.getContentPane().add(lb1);
+		super("Galimerca");
+		panelUsuario = new PanelUsuario();
+		this.getContentPane().add(panelUsuario);
+		
+		menu = new CerrarSesion(this);
+		this.setJMenuBar(menu);
+		
 		
 		
 		this.setVisible(true);

@@ -7,6 +7,7 @@ import conectar.UsuarioDAO;
 import conectar.VentasDAO;
 import modelo.UsuarioDTO;
 import vista.login.VentanaLogin;
+import vista.panelusuario.VentanaPanelInventario;
 
 public class Supermercado {
 	private UsuarioDAO usuDAO = new UsuarioDAO();
@@ -42,8 +43,8 @@ public class Supermercado {
 		usuDAO.crearUsuarioBD(usuDTO);
 	}
 	
-	public ArrayList<String> buscarProducto(String nom) {
-		return invDAO.buscarProductoBD(nom);
+	public void buscarProducto(String nom, VentanaPanelInventario vpi, int tipoBusqueda) {
+		invDAO.buscarProductoBD(nom, vpi, tipoBusqueda);
 	}
 	
 	public void anadirVenta() {

@@ -9,6 +9,7 @@ import vista.login.Contrasena;
 import vista.login.MensajeError;
 import vista.login.Usuario;
 import vista.login.VentanaLogin;
+import vista.paneladmin.VentanaPanelAdmin;
 import vista.panelusuario.VentanaPanelUsuario;
 
 public class ListenerLogin implements ActionListener {
@@ -29,10 +30,12 @@ public class ListenerLogin implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(superm.loginCorrecto(usuario.getJtf().getText(), String.valueOf(contrasena.getJpswf().getPassword()))) {
 			if(superm.loginAdmin(usuario.getJtf().getText(), String.valueOf(contrasena.getJpswf().getPassword()))) {
-				System.out.println("el usuario es admin");
-				
+				mensajeErr.getLb().setForeground(Color.BLACK);
+				mensajeErr.getLb().setText("Login correcto");
+				vL.setVisible(false);
+				vL.dispose();
+				VentanaPanelAdmin pA = new VentanaPanelAdmin();
 			}else {
-				System.out.println("el usuario NO ES admin");
 				mensajeErr.getLb().setForeground(Color.BLACK);
 				mensajeErr.getLb().setText("Login correcto");
 				vL.setVisible(false);

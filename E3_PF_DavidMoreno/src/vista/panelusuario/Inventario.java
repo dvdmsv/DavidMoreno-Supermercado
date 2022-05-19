@@ -17,25 +17,28 @@ import vista.controlador.ListenerBuscarProducto;
 public class Inventario extends JPanel {
 	private JLabel nomProd, infoProd;
 	private JTextField jtfNomProd;
-	private JButton buscar;
+	private JButton buscarNom, buscarCod, buscarFam;
 	
 	public Inventario() {
-		nomProd = new JLabel("Nombre del producto");
+		nomProd = new JLabel("Producto");
 		jtfNomProd = new JTextField("");
-		buscar = new JButton("Buscar producto");
-		infoProd = new JLabel();
-		
+		buscarNom = new JButton("Buscar producto por nombre");
+		buscarCod = new JButton("Buscar producto por codigo");
+		buscarFam = new JButton("Buscar producto por familia");
 		
 		
 		this.add(nomProd);
 		this.add(jtfNomProd);
-		this.add(buscar);
-		buscar.addActionListener(new ListenerBuscarProducto(this));
-		this.add(infoProd);
+		this.add(buscarNom);
+		this.add(buscarCod);
+		this.add(buscarFam);
+		buscarNom.addActionListener(new ListenerBuscarProducto(this, 1));
+		buscarCod.addActionListener(new ListenerBuscarProducto(this, 2));
+		buscarFam.addActionListener(new ListenerBuscarProducto(this, 3));
 		
 		
 		
-		this.setLayout(new GridLayout(4,1));
+		this.setLayout(new GridLayout(5,1));
 		this.setPreferredSize(new Dimension(800,200));
 	}
 

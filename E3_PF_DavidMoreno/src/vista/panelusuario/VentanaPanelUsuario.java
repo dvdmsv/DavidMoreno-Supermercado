@@ -25,6 +25,7 @@ public class VentanaPanelUsuario extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setSize(new Dimension(1000, 500));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

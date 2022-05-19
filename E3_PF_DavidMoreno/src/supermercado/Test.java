@@ -8,8 +8,8 @@ public class Test {
 
 	public static void main(String[] args) {
 		Supermercado superm = new Supermercado();
-		//superm.login();
-		VentanaPanelUsuario vp = new VentanaPanelUsuario();
+		superm.login();
+		//VentanaPanelUsuario vp = new VentanaPanelUsuario();
 		//superm.buscarProducto();
 	}
 

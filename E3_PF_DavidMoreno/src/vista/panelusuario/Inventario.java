@@ -1,8 +1,12 @@
 package vista.panelusuario;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -12,7 +16,7 @@ public class Inventario extends JPanel {
 	private JTextField jtfNomProd;
 	
 	public Inventario() {
-		lblNomProd = new JLabel("Nombre del producto");
+		NomProd = new JLabel("Nombre del producto");
 		jtfNomProd = new JTextField("");
 		
 
@@ -23,11 +27,9 @@ public class Inventario extends JPanel {
 		lblPrecProd = new JLabel("Precio: ");
 		lblIVAProd = new JLabel("IVA: ");
 		
-		//this.setPreferredSize(new Dimension(500,400));
-		this.setLayout(new GridLayout(7, 1));
 		
 		
-		this.add(lblNomProd);
+		this.add(NomProd);
 		this.add(jtfNomProd);
 		
 		
@@ -38,8 +40,7 @@ public class Inventario extends JPanel {
 		this.add(lblPrecProd);
 		this.add(lblIVAProd);
 		
-		
-		
+		this.setLayout(new GridLayout(7,2));
 	}
 
 }

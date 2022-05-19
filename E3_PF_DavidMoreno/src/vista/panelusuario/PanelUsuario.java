@@ -22,6 +22,7 @@ public class PanelUsuario extends JPanel {
 		
 		this.add(jtp);
 		this.setBackground(Color.decode("#04FCFC"));
+		this.setBorder(BorderFactory.createEmptyBorder(50,100,100,100));
 		
 	}
 

@@ -12,7 +12,6 @@ public class VentanaPanelUsuario extends JFrame{
 	public VentanaPanelUsuario() {
 		super("Galimerca");
 		panelUsuario = new PanelUsuario();
-		panelUsuario.setSize(4000,5000);
 		this.getContentPane().add(panelUsuario);
 		
 		menu = new CerrarSesion(this);
@@ -22,6 +21,7 @@ public class VentanaPanelUsuario extends JFrame{
 		
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 		this.setSize(new Dimension(1000, 500));
 	}
 

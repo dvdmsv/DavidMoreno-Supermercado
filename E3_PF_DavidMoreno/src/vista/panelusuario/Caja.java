@@ -21,6 +21,7 @@ public class Caja extends JPanel{
 		jtfCantidadProd = new JTextField();
 		btSiguiente = new JButton("Siguiente producto");
 		btFinalizar = new JButton("Finalizar compra");
+		
 		this.setLayout(new GridLayout(3, 2));
 		this.add(lblCodProd);
 		this.add(jtfCodProd);
@@ -30,6 +31,9 @@ public class Caja extends JPanel{
 		
 		this.add(btSiguiente);
 		this.add(btFinalizar);
+		
+		this.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
+		
 		
 		
 	}

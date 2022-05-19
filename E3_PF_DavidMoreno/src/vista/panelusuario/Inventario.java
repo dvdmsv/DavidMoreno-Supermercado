@@ -7,40 +7,43 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import vista.controlador.ListenerBuscarProducto;
+
 public class Inventario extends JPanel {
-	private JLabel NomProd, lblNomProd, lblCodProd, lblFamProd, lblCantProd, lblPrecProd, lblIVAProd;
+	private JLabel nomProd, infoProd;
 	private JTextField jtfNomProd;
+	private JButton buscar;
 	
 	public Inventario() {
-		NomProd = new JLabel("Nombre del producto");
+		nomProd = new JLabel("Nombre del producto");
 		jtfNomProd = new JTextField("");
-		
-
-		lblCodProd = new JLabel("Codigo: ");
-		lblNomProd = new JLabel("Nombre: ");
-		lblFamProd = new JLabel("Familia: ");
-		lblCantProd = new JLabel("Cantidad: ");
-		lblPrecProd = new JLabel("Precio: ");
-		lblIVAProd = new JLabel("IVA: ");
+		buscar = new JButton("Buscar producto");
+		infoProd = new JLabel();
 		
 		
 		
-		this.add(NomProd);
+		this.add(nomProd);
 		this.add(jtfNomProd);
+		this.add(buscar);
+		buscar.addActionListener(new ListenerBuscarProducto(this));
+		this.add(infoProd);
 		
 		
-		this.add(lblCodProd);
-		this.add(lblNomProd);
-		this.add(lblFamProd);
-		this.add(lblCantProd);
-		this.add(lblPrecProd);
-		this.add(lblIVAProd);
 		
-		this.setLayout(new GridLayout(7,2));
+		this.setLayout(new GridLayout(4,1));
+		this.setPreferredSize(new Dimension(800,200));
 	}
 
+	public JLabel getInfoProd() {
+		return infoProd;
+	}
+
+	public JTextField getJtfNomProd() {
+		return jtfNomProd;
+	}
 }

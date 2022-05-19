@@ -1,5 +1,7 @@
 package supermercado;
 
+import java.util.ArrayList;
+
 import conectar.InventarioDAO;
 import conectar.UsuarioDAO;
 import conectar.VentasDAO;
@@ -40,8 +42,8 @@ public class Supermercado {
 		usuDAO.crearUsuarioBD(usuDTO);
 	}
 	
-	public void buscarProducto() {
-		invDAO.buscarProductoBD("1");
+	public ArrayList<String> buscarProducto(String nom) {
+		return invDAO.buscarProductoBD(nom);
 	}
 	
 	public void anadirVenta() {

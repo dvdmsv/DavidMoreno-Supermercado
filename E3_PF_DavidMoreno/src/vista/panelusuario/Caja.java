@@ -1,6 +1,5 @@
 package vista.panelusuario;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -31,6 +30,7 @@ public class Caja extends JPanel{
 		
 		this.add(btSiguiente);
 		this.add(btFinalizar);
+		
 		
 		this.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
 		

@@ -13,6 +13,8 @@ public class VentanaPanelUsuario extends JFrame{
 		super("Galimerca");
 		panelUsuario = new PanelUsuario();
 		this.getContentPane().add(panelUsuario);
+
+		
 		
 		menu = new CerrarSesion(this);
 		this.setJMenuBar(menu);

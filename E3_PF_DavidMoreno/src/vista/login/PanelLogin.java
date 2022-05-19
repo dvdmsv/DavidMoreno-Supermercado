@@ -1,6 +1,7 @@
 package vista.login;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
@@ -16,6 +17,7 @@ public class PanelLogin extends JPanel{
 	public PanelLogin(VentanaLogin vL) {
 		this.vL = vL;
 		this.setBorder(new TitledBorder("Iniciar sesion"));
+		
 		this.setBackground(Color.decode("#04FCFC"));
 		usuario = new Usuario();
 		contrasena = new Contrasena();

@@ -1,7 +1,9 @@
 package vista.panelusuario;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,7 +21,7 @@ public class Caja extends JPanel{
 		jtfCantidadProd = new JTextField();
 		btSiguiente = new JButton("Siguiente producto");
 		btFinalizar = new JButton("Finalizar compra");
-		
+		this.setLayout(new GridLayout(3, 2));
 		this.add(lblCodProd);
 		this.add(jtfCodProd);
 		
@@ -29,7 +31,7 @@ public class Caja extends JPanel{
 		this.add(btSiguiente);
 		this.add(btFinalizar);
 		
-		this.setLayout(new GridLayout(3, 2));
+		
 	}
 
 }

@@ -11,14 +11,8 @@ public class Supermercado {
 	private InventarioDAO invDAO = new InventarioDAO();
 	private VentasDAO venDAO = new VentasDAO();
 	
-	public void run() {
-		this.login();
-	}
-	
 	public void login() {
 		VentanaLogin vL = new VentanaLogin();
-		vL.login();
-		
 	}
 	
 	public boolean loginCorrecto(String nom, String contra) {

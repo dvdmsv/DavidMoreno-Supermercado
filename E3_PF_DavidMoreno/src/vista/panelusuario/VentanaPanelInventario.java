@@ -15,6 +15,7 @@ public class VentanaPanelInventario extends JFrame {
 	
 	public VentanaPanelInventario() {
 		super("Panel de inventario");
+		
 		JScrollPane scrollPane = new JScrollPane();
 		this.getContentPane().add(scrollPane);
 		String [] columnas = {"Codigo producto", "Nombre producto", "Familia producto", "Cantidad Producto", "Precio producto", "IVA producto"};

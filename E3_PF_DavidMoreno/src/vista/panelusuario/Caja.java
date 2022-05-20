@@ -9,9 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import vista.controlador.ListenerGenerarCesta;
+import vista.controlador.ListenerSiguienteProducto;
 
 public class Caja extends JPanel{
-	private JLabel lblCodProd, lblCantidadProd;
+	private JLabel lblCodProd, lblCantidadProd, lblInfo;
 	private JTextField jtfCodProd, jtfCantidadProd;
 	private JButton btSiguiente, btGenerar;
 	
@@ -22,8 +23,9 @@ public class Caja extends JPanel{
 		jtfCantidadProd = new JTextField();
 		btSiguiente = new JButton("Siguiente producto");
 		btGenerar = new JButton("Generar cesta");
+		lblInfo = new JLabel();
 		
-		this.setLayout(new GridLayout(3, 2));
+		this.setLayout(new GridLayout(4, 2));
 		this.add(lblCodProd);
 		this.add(jtfCodProd);
 		
@@ -32,11 +34,27 @@ public class Caja extends JPanel{
 		
 		this.add(btSiguiente);
 		this.add(btGenerar);
+		this.add(lblInfo);
 		
-		btGenerar.addActionListener(new ListenerGenerarCesta(this));
+		
+		ListenerSiguienteProducto listenerSiguiente = new ListenerSiguienteProducto(this);
+		btSiguiente.addActionListener(listenerSiguiente);
+		btGenerar.addActionListener(new ListenerGenerarCesta(this, listenerSiguiente));
 		
 		
 		this.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
+	}
+
+	public JTextField getJtfCodProd() {
+		return jtfCodProd;
+	}
+
+	public JTextField getJtfCantidadProd() {
+		return jtfCantidadProd;
+	}
+
+	public JLabel getLblInfo() {
+		return lblInfo;
 	}
 
 }

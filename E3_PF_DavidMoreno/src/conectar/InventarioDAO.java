@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import modelo.InventarioDTO;
+import vista.panelusuario.VentanaPanelCesta;
 import vista.panelusuario.VentanaPanelInventario;
 
 public class InventarioDAO {
@@ -39,5 +40,42 @@ public class InventarioDAO {
 		}catch(Exception e) {
 			
 		}
+	}
+	
+	public void buscarProductoPorCodBD(String cod, VentanaPanelCesta vpc) { //Recibe un codigo, el JFrame de VentanaPanelCesta
+		PreparedStatement preparedStatement = null;
+		Conectar conn = new Conectar();
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?");
+			preparedStatement.setString(1,cod);
+			ResultSet resultado = preparedStatement.executeQuery();
+			while(resultado.next()) {
+				for(int i=1; i<=resultado.getMetaData().getColumnCount(); i++) {
+					vpc.getData()[0] = resultado.getString(2); //Nombre
+					vpc.getData()[2] = resultado.getString(5); //Precio
+					vpc.getData()[3] = resultado.getString(6); //IVA
+				}
+			}
+		}catch(Exception e) {
+			System.out.print("Codigo erroneo");
+		}
+	}
+	
+	public boolean productoExisteBD(String cod) {
+		PreparedStatement preparedStatement = null;
+		Conectar conn = new Conectar();
+		boolean existe = false;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?");
+			preparedStatement.setString(1,cod);
+			ResultSet resultado = preparedStatement.executeQuery();
+			if(resultado.isBeforeFirst()) {
+				existe = true;
+			}
+		}catch(Exception e) {
+			
+			
+		}
+		return existe;
 	}
 }

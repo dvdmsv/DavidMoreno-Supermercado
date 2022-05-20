@@ -37,5 +37,11 @@ public class VentanaPanelCesta extends JFrame {
 		this.setSize(new Dimension(1000, 500));
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	}
+	public Object[] getData() {
+		return data;
+	}
+	public DefaultTableModel getModelo() {
+		return modelo;
+	}
 
 }

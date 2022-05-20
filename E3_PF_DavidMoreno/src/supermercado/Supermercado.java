@@ -7,6 +7,7 @@ import conectar.UsuarioDAO;
 import conectar.VentasDAO;
 import modelo.UsuarioDTO;
 import vista.login.VentanaLogin;
+import vista.panelusuario.VentanaPanelCesta;
 import vista.panelusuario.VentanaPanelInventario;
 
 public class Supermercado {
@@ -45,6 +46,14 @@ public class Supermercado {
 	
 	public void buscarProducto(String nom, VentanaPanelInventario vpi, int tipoBusqueda) {
 		invDAO.buscarProductoBD(nom, vpi, tipoBusqueda);
+	}
+	
+	public void buscarProductoPorCod(String cod, VentanaPanelCesta vpc) {
+		invDAO.buscarProductoPorCodBD(cod, vpc);
+	}
+	
+	public boolean productoExiste(String cod) {
+		return invDAO.productoExisteBD(cod);
 	}
 	
 	public void anadirVenta() {

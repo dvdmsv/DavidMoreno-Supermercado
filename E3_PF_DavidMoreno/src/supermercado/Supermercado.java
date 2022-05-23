@@ -56,6 +56,10 @@ public class Supermercado {
 		return invDAO.productoExisteBD(cod);
 	}
 	
+	public int stockDisponible(String nom) {
+		return invDAO.stockDisponibleBD(nom);
+	}
+	
 	public void anadirVenta() {
 		venDAO.anadirVentaBD(5, "pollo", "carnes", 5, "2022-05-10", 1000);
 	}

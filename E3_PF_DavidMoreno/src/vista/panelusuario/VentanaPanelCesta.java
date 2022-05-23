@@ -2,7 +2,9 @@ package vista.panelusuario;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -13,6 +15,7 @@ public class VentanaPanelCesta extends JFrame {
 	private JTable tabla;
 	private DefaultTableModel modelo;
 	Object [] data = new Object[5];
+	private JButton finalizar;
 	public VentanaPanelCesta() {
 		super("Panel de inventario");
 		
@@ -31,6 +34,10 @@ public class VentanaPanelCesta extends JFrame {
 		TableRowSorter<DefaultTableModel> ordena = new TableRowSorter<DefaultTableModel>(modelo); //Objeto que ordena la tabla 
 		tabla.setRowSorter(ordena); //Se le añade a la tabla
 		
+		finalizar = new JButton("Finalizar compra");
+		this.add(finalizar);
+		
+		this.setLayout(new GridLayout(2, 1));
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);

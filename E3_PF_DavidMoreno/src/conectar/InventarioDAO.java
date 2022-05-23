@@ -50,7 +50,8 @@ public class InventarioDAO {
 			preparedStatement.setString(1,cod);
 			ResultSet resultado = preparedStatement.executeQuery();
 			while(resultado.next()) {
-				for(int i=1; i<=resultado.getMetaData().getColumnCount(); i++) {
+				for(int i=1; i<=resultado.getMetaData().getColumnCount(); i++) { //Da tantas vueltas como columnas 
+					//Se van obteniendo los datos y almacenando en el array de VentanaPanelCesta
 					vpc.getData()[0] = resultado.getString(2); //Nombre
 					vpc.getData()[2] = resultado.getString(5); //Precio
 					vpc.getData()[3] = resultado.getString(6); //IVA
@@ -78,4 +79,24 @@ public class InventarioDAO {
 		}
 		return existe;
 	}
+	
+	public int stockDisponibleBD(String cod) {
+		PreparedStatement preparedStatement = null;
+		Conectar conn = new Conectar();
+		int stock = 0;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO = ?");
+			preparedStatement.setString(1, cod);
+			ResultSet resultado = preparedStatement.executeQuery();
+			//stock = resultado.getInt(1);
+			while(resultado.next()) {
+				stock = resultado.getInt(1);
+			}
+		}catch(Exception e) {
+			
+		}
+		return stock;
+	}
+	
+	
 }

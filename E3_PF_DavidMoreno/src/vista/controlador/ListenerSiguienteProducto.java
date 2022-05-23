@@ -21,23 +21,29 @@ public class ListenerSiguienteProducto implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(superm.productoExiste(caja.getJtfCodProd().getText())) { //Si el producto existe
-			if(caja.getJtfCantidadProd().getText().isEmpty()) { //Si la cantidad está vacia
-				caja.getLblInfo().setText("Introducir cantidad");
+		if(superm.productoExiste(caja.getJtfCodProd().getText())) { //Comprueba si el producto existe en la base de datos
+			if(Integer.parseInt(caja.getJtfCantidadProd().getText()) <= superm.stockDisponible(caja.getJtfCodProd().getText())) { //Comprueba si hay stock disponible. Si la cantidad escrita es menor o igual a la cantidad de stock
+				if(caja.getJtfCantidadProd().getText().isEmpty() || caja.getJtfCantidadProd().getText().equals("0")) { //Comprueba si el campo de texto esta vacio o es igual a 0 (SOLUCIONAR PONER SOLO VALORES NUMERICOS)
+					caja.getLblInfo().setText("Introducir cantidad correcta");
+					caja.getLblInfo().setForeground(Color.red);
+					caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 25));
+					caja.getJtfCantidadProd().setText("");
+				}else { //Si el campo de texto no está vacio ni contiene un 0
+					codProd.add(caja.getJtfCodProd().getText()); //Se añade al ArrayList de codigos de producto el codigo de producto
+					cantProd.add(caja.getJtfCantidadProd().getText()); //Se añade al ArrayList de cantidades la cantidad seleccionada
+					caja.getLblInfo().setText("Producto añadido correctamente");
+					caja.getLblInfo().setForeground(Color.green);
+					caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 25));
+					caja.getJtfCodProd().setText("");
+					caja.getJtfCantidadProd().setText("");
+				}
+			}else { //No hay stock del producto
+				caja.getLblInfo().setText("STOCK INSUFICIENTE. STOCK DISPONIBLE: " + superm.stockDisponible(caja.getJtfCodProd().getText()));
 				caja.getLblInfo().setForeground(Color.red);
-				caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 25));
-				caja.getJtfCantidadProd().setText("");
-			}else { //Si no está vacia
-				codProd.add(caja.getJtfCodProd().getText());
-				cantProd.add(caja.getJtfCantidadProd().getText());
-				System.out.println(caja.getJtfCodProd().getText());
-				caja.getLblInfo().setText("Producto añadido correctamente");
-				caja.getLblInfo().setForeground(Color.green);
-				caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 25));
+				caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
 				caja.getJtfCodProd().setText("");
-				caja.getJtfCantidadProd().setText("");
-			}
-		}else { //Si el producto no existe
+			}	
+		}else { //Si el producto no existe en la base de datos
 			caja.getLblInfo().setText("Codigo erroneo");
 			caja.getLblInfo().setForeground(Color.red);
 			caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 25));

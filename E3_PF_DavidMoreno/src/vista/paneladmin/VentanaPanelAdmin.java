@@ -4,12 +4,26 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+
+import vista.panelusuario.CerrarSesion;
+import vista.panelusuario.PanelUsuario;
 
 public class VentanaPanelAdmin extends JFrame{
-	private JLabel lb;
+	private PanelAdmin panelAdmin;
+	private JMenuBar menu;
+	
 	public VentanaPanelAdmin() {
-		lb = new JLabel("Panel de administrador");
-		this.getContentPane().add(lb);
+		super("Panel de Admin");
+		panelAdmin = new PanelAdmin();
+		this.getContentPane().add(panelAdmin);
+
+		
+		
+		menu = new CerrarSesion(this);
+		this.setJMenuBar(menu);
+		
+		
 		
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);

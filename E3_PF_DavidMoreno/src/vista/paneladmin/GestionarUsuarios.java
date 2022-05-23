@@ -9,14 +9,13 @@ import vista.controlador.ListenerBotonCrear;
 
 public class GestionarUsuarios extends JPanel {
 	private JButton crear, eliminar, modificar;
-	private ListenerBotonCrear listenerBotonCrear;
 	
 	public GestionarUsuarios() {
 		crear = new JButton("Crear Usuario");
 		eliminar = new JButton("Eliminar Usuario");
 		modificar = new JButton("Modificar Usuario");
 		
-		crear.addActionListener(listenerBotonCrear);
+		crear.addActionListener(new ListenerBotonCrear());
 		
 		this.setLayout(new GridLayout(1,2));
 		this.add(crear);

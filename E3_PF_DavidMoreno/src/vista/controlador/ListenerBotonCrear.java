@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import vista.paneladmin.VentanaPanelCrearUsuario;
 
 public class ListenerBotonCrear implements ActionListener{
-	private VentanaPanelCrearUsuario vpcu;
+	//private VentanaPanelCrearUsuario vpcu;
 	
 	public ListenerBotonCrear() {
 		

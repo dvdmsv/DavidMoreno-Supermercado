@@ -18,20 +18,15 @@ public class UsuarioDAO {
 			preparedStatement.setString(1, nom);
 			ResultSet resultado = preparedStatement.executeQuery();
 			if(resultado.isBeforeFirst()) {
-				while(resultado.next()) {
-					for(int i=1; i<=resultado.getMetaData().getColumnCount(); i++) {
-						System.out.print(resultado.getString(i) + " | ");
-					}
-					existe = true;
-				}
+				existe = true;
 			}else {
-				System.out.print("El usuario no existe");
 				existe = false;
 			}
-			conn.desconectar();
 			return existe;
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
 		}
 		return false;
 	}
@@ -54,6 +49,8 @@ public class UsuarioDAO {
 			return existe;
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
 		}
 		return false;
 	}
@@ -75,6 +72,8 @@ public class UsuarioDAO {
 			conn.desconectar();
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
 		}
 		return correct;
 	}
@@ -93,9 +92,10 @@ public class UsuarioDAO {
 			}else {
 				correct = false;
 			}
-			conn.desconectar();
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
 		}
 		return correct;
 	}
@@ -114,6 +114,24 @@ public class UsuarioDAO {
 			conn.desconectar();
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
+		}
+	}
+	
+	public void eliminarUsuarioBD(String nomUsu) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("DELETE FROM usuarios WHERE NOMBRE_USUARIO = ?;");
+			preparedStatement.setString(1, nomUsu);
+			preparedStatement.executeUpdate();
+			conn.desconectar();
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
 		}
 	}
 

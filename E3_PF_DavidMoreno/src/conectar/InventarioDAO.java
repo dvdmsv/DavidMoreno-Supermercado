@@ -39,6 +39,8 @@ public class InventarioDAO {
 			}
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
 		}
 	}
 	
@@ -59,6 +61,8 @@ public class InventarioDAO {
 			}
 		}catch(Exception e) {
 			System.out.print("Codigo erroneo");
+		}finally {
+			conn.desconectar();
 		}
 	}
 	
@@ -76,6 +80,8 @@ public class InventarioDAO {
 		}catch(Exception e) {
 			
 			
+		}finally {
+			conn.desconectar();
 		}
 		return existe;
 	}
@@ -94,6 +100,8 @@ public class InventarioDAO {
 			}
 		}catch(Exception e) {
 			
+		}finally {
+			conn.desconectar();
 		}
 		return stock;
 	}

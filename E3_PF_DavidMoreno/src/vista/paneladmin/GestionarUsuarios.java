@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import vista.controlador.ListenerBotonCrear;
+import vista.controlador.ListenerBotonEliminar;
 
 public class GestionarUsuarios extends JPanel {
 	private JButton crear, eliminar, modificar;
@@ -16,6 +17,7 @@ public class GestionarUsuarios extends JPanel {
 		modificar = new JButton("Modificar Usuario");
 		
 		crear.addActionListener(new ListenerBotonCrear());
+		eliminar.addActionListener(new ListenerBotonEliminar());
 		
 		this.setLayout(new GridLayout(1,2));
 		this.add(crear);

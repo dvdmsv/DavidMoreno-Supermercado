@@ -1,5 +1,7 @@
 package supermercado;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 
 import conectar.InventarioDAO;
@@ -19,7 +21,22 @@ public class Supermercado {
 		VentanaLogin vL = new VentanaLogin();
 	}
 	
-	public boolean loginCorrecto(String nom, String contra) {
+	public String generarHash(String contra) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] messageDigest = md.digest(contra.getBytes());
+			BigInteger no = new BigInteger(1, messageDigest);
+			String hashtext = no.toString(16);
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean loginCorrecto(String nom, String contra) { //Comprueba si el nombre de usuario y la contraseña es correcto
 		if(usuDAO.loginBD(nom, contra)) {
 			return true;
 		}else {
@@ -27,7 +44,7 @@ public class Supermercado {
 		}
 	}
 	
-	public boolean loginAdmin(String nom, String contra) {
+	public boolean loginAdmin(String nom, String contra) { //Comprueba si el usuario es admin
 		if(usuDAO.loginAdminBD(nom, contra)) {
 			return true;
 		}else {
@@ -35,13 +52,17 @@ public class Supermercado {
 		}
 	}
 	
-	public void buscarUsuario(String nomUsu) {
-		usuDAO.buscarUsuarioBD(nomUsu);
+	public boolean buscarUsuario(String nomUsu) {
+		return usuDAO.buscarUsuarioBD(nomUsu);
 	}
 	
-	public void crearUsuario() {
-		UsuarioDTO usuDTO = new UsuarioDTO("hola", 000, "admin", "F");
+	public void crearUsuario(String nom, String pass, String admin) {
+		UsuarioDTO usuDTO = new UsuarioDTO(nom, 0, pass, admin);
 		usuDAO.crearUsuarioBD(usuDTO);
+	}
+	
+	public void eliminarUsuario(String nom) {
+		usuDAO.eliminarUsuarioBD(nom);
 	}
 	
 	public void buscarProducto(String nom, VentanaPanelInventario vpi, int tipoBusqueda) {

@@ -14,7 +14,7 @@ public class VentanaPanelAdmin extends JFrame{
 	private JMenuBar menu;
 	
 	public VentanaPanelAdmin() {
-		super("Panel de Admin");
+		super("GALDI -Panel de Admin-");
 		panelAdmin = new PanelAdmin();
 		this.getContentPane().add(panelAdmin);
 

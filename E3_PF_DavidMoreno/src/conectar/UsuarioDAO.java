@@ -45,7 +45,6 @@ public class UsuarioDAO {
 			}else {
 				existe = false;
 			}
-			conn.desconectar();
 			return existe;
 		}catch(Exception e) {
 			
@@ -111,7 +110,6 @@ public class UsuarioDAO {
 			preparedStatement.setString(2, usuDTO.getContr());
 			preparedStatement.setString(3, usuDTO.getUsuAdmin());
 			preparedStatement.executeUpdate();
-			conn.desconectar();
 		}catch(Exception e) {
 			
 		}finally {
@@ -127,8 +125,23 @@ public class UsuarioDAO {
 			preparedStatement = conn.getConnect().prepareStatement("DELETE FROM usuarios WHERE NOMBRE_USUARIO = ?;");
 			preparedStatement.setString(1, nomUsu);
 			preparedStatement.executeUpdate();
-			conn.desconectar();
 		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
+	}
+	
+	public void modificarNombre(String newNom, String nom) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("UPDATE usuarios SET NOMBRE_USUARIO=? WHERE NOMBRE_USUARIO=?;");
+			preparedStatement.setString(1, newNom);
+			preparedStatement.setString(2, nom);
+			preparedStatement.executeUpdate();
+		}catch(Exception e){
 			
 		}finally {
 			conn.desconectar();

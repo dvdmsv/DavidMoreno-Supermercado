@@ -17,7 +17,7 @@ public class VentanaPanelCesta extends JFrame {
 	Object [] data = new Object[5];
 	private JButton finalizar;
 	public VentanaPanelCesta() {
-		super("Panel de inventario");
+		super("GALDI -Panel de cesta-");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		this.getContentPane().add(scrollPane);

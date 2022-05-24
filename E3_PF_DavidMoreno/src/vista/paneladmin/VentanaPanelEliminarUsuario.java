@@ -18,6 +18,7 @@ public class VentanaPanelEliminarUsuario extends JFrame{
 	private JButton eliminar;
 	
 	public VentanaPanelEliminarUsuario() {
+		super("GALDI -Eliminar Usuario-");
 		JPanel panel = new JPanel();
 		lblNombreUsu = new JLabel("Nombre de usuario");
 		lblInfo = new JLabel();

@@ -23,6 +23,7 @@ public class VentanaPanelCrearUsuario extends JFrame{
 	
 	
 	public VentanaPanelCrearUsuario() {
+		super("GALDI -Crear Usuario-");
 		JPanel panel = new JPanel();
 		lblNombreUsu = new JLabel("Nombre de usuario");
 		lblContrasena = new JLabel("Contrasena");

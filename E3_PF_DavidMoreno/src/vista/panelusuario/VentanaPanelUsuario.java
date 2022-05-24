@@ -10,7 +10,7 @@ public class VentanaPanelUsuario extends JFrame{
 	private JMenuBar menu;
 	
 	public VentanaPanelUsuario() {
-		super("Galimerca");
+		super("GALDI -Panel Usuario-");
 		panelUsuario = new PanelUsuario();
 		this.getContentPane().add(panelUsuario);
 

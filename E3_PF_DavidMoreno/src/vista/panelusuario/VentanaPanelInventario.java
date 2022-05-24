@@ -14,7 +14,7 @@ public class VentanaPanelInventario extends JFrame {
 	Object [] data = new Object[6];
 	
 	public VentanaPanelInventario() {
-		super("Panel de inventario");
+		super("GALDI -Panel de inventario-");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		this.getContentPane().add(scrollPane);

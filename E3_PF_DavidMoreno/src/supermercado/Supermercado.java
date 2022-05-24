@@ -65,6 +65,10 @@ public class Supermercado {
 		usuDAO.eliminarUsuarioBD(nom);
 	}
 	
+	public void modificarNombre(String nom, String newNom) {
+		usuDAO.modificarNombre(nom, newNom);
+	}
+	
 	public void buscarProducto(String nom, VentanaPanelInventario vpi, int tipoBusqueda) {
 		invDAO.buscarProductoBD(nom, vpi, tipoBusqueda);
 	}

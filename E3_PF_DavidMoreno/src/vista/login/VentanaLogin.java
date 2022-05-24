@@ -13,7 +13,7 @@ public class VentanaLogin extends JFrame {
 	private FondoImagen fondo = new FondoImagen();
 	
 	public VentanaLogin() {
-		super("Galimerca");
+		super("GALDI -Login-");
 		
 		this.setPreferredSize(new Dimension(500,400));
 		this.setBackground(Color.decode("#04FCFC"));

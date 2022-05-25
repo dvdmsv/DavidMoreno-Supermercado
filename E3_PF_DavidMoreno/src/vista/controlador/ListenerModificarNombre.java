@@ -20,20 +20,27 @@ public class ListenerModificarNombre implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(superm.buscarUsuario(pdmu.getJtfNom().getText())) { //Si el usuario a modificar existe
-			if(!superm.buscarUsuario(pdmu.getJtfNewNom().getText())) { //Si el nuevo nombre de usuario no existe en la base de datos
-				superm.modificarNombre(pdmu.getJtfNewNom().getText(), pdmu.getJtfNom().getText());
-				if(superm.buscarUsuario(pdmu.getJtfNewNom().getText())) {
-					pdmu.getLblInfo().setText("Nombre cambiado correctamente");
-					pdmu.getLblInfo().setForeground(Color.green);
-					pdmu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
-					pdmu.getJtfNom().setText("");
-					pdmu.getJtfNewNom().setText("");
-				}
-			}else {
-				pdmu.getLblInfo().setText("Ese nombre de usuario ya existe");
+			if(pdmu.getJtfNom().getText().equals("admin")){ //Si el usuario es admin
+				pdmu.getLblInfo().setText("No se puede cambair de nombre a admin");
 				pdmu.getLblInfo().setForeground(Color.red);
 				pdmu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
-				pdmu.getJtfNewNom().setText("");
+				pdmu.getJtfNom().setText("");
+			}else {
+				if(!superm.buscarUsuario(pdmu.getJtfNewNom().getText())) { //Si el nuevo nombre de usuario no existe en la base de datos
+					superm.modificarNombre(pdmu.getJtfNewNom().getText(), pdmu.getJtfNom().getText());
+					if(superm.buscarUsuario(pdmu.getJtfNewNom().getText())) {
+						pdmu.getLblInfo().setText("Nombre cambiado correctamente");
+						pdmu.getLblInfo().setForeground(Color.green);
+						pdmu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
+						pdmu.getJtfNom().setText("");
+						pdmu.getJtfNewNom().setText("");
+					}
+				}else {
+					pdmu.getLblInfo().setText("Ese nombre de usuario ya existe");
+					pdmu.getLblInfo().setForeground(Color.red);
+					pdmu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
+					pdmu.getJtfNewNom().setText("");
+				}
 			}
 		}else {
 			pdmu.getLblInfo().setText("El usuario no existe");

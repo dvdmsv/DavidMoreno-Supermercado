@@ -132,7 +132,7 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public void modificarNombre(String newNom, String nom) {
+	public void modificarNombreBD(String newNom, String nom) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
 		
@@ -141,6 +141,26 @@ public class UsuarioDAO {
 			preparedStatement.setString(1, newNom);
 			preparedStatement.setString(2, nom);
 			preparedStatement.executeUpdate();
+		}catch(Exception e){
+			
+		}finally {
+			conn.desconectar();
+		}
+	}
+	
+	public void modificarPermisoBD(String nom, int opc) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		try {
+			if(opc == 1) {
+				preparedStatement = conn.getConnect().prepareStatement("UPDATE usuarios SET USUARIO_ADMIN='T' WHERE NOMBRE_USUARIO=?;");
+				preparedStatement.setString(1, nom);
+				preparedStatement.executeUpdate();
+			}else if(opc == 2) {
+				preparedStatement = conn.getConnect().prepareStatement("UPDATE usuarios SET USUARIO_ADMIN='F' WHERE NOMBRE_USUARIO=?;");
+				preparedStatement.setString(1, nom);
+				preparedStatement.executeUpdate();
+			}
 		}catch(Exception e){
 			
 		}finally {

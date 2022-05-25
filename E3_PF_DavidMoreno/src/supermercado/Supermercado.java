@@ -66,7 +66,11 @@ public class Supermercado {
 	}
 	
 	public void modificarNombre(String nom, String newNom) {
-		usuDAO.modificarNombre(nom, newNom);
+		usuDAO.modificarNombreBD(nom, newNom);
+	}
+	
+	public void modificarPermiso(String nom, int opc) {
+		usuDAO.modificarPermisoBD(nom, opc);
 	}
 	
 	public void buscarProducto(String nom, VentanaPanelInventario vpi, int tipoBusqueda) {

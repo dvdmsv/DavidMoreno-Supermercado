@@ -66,4 +66,8 @@ public class PanelDatosModificarUsuario extends JPanel{
 	public JLabel getLblInfo() {
 		return lblInfo;
 	}
+
+	public JCheckBox getAdmin() {
+		return admin;
+	}
 }

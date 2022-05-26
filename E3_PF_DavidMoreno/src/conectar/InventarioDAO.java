@@ -18,11 +18,11 @@ public class InventarioDAO {
 		
 		try {
 			if(tipoBusqueda == 1) {
-				preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE NOMBRE_PRODUCTO LIKE ?");
+				preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE NOMBRE_PRODUCTO LIKE ?;");
 			}else if(tipoBusqueda == 2) {
-				preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?");
+				preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?;");
 			}else if(tipoBusqueda == 3) {
-				preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE FAMILIA_PRODUCTO LIKE ?");
+				preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE FAMILIA_PRODUCTO LIKE ?;");
 			}
 			preparedStatement.setString(1, "%" + nom + "%");
 			ResultSet resultado = preparedStatement.executeQuery();
@@ -48,7 +48,7 @@ public class InventarioDAO {
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?");
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?;");
 			preparedStatement.setString(1,cod);
 			ResultSet resultado = preparedStatement.executeQuery();
 			while(resultado.next()) {
@@ -71,7 +71,7 @@ public class InventarioDAO {
 		Conectar conn = new Conectar();
 		boolean existe = false;
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?");
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE CODIGO_PRODUCTO LIKE ?;");
 			preparedStatement.setString(1,cod);
 			ResultSet resultado = preparedStatement.executeQuery();
 			if(resultado.isBeforeFirst()) {
@@ -87,11 +87,11 @@ public class InventarioDAO {
 	}
 	
 	public int stockDisponibleBD(String cod) {
-		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
 		int stock = 0;
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO = ?");
+			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO = ?;");
 			preparedStatement.setString(1, cod);
 			ResultSet resultado = preparedStatement.executeQuery();
 			//stock = resultado.getInt(1);
@@ -104,6 +104,28 @@ public class InventarioDAO {
 			conn.desconectar();
 		}
 		return stock;
+	}
+	
+	public void crearProductoBD(InventarioDTO prod) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("INSERT INTO INVENTARIO VALUES(NULL,?,?,?,?,?);");
+			preparedStatement.setString(1, prod.getNomProducto());
+			preparedStatement.setString(2, prod.getFamProducto());
+			preparedStatement.setInt(3, prod.getCantidProducto());
+			preparedStatement.setFloat(4, prod.getPrecioProducto());
+			preparedStatement.setFloat(5, prod.getIvaProducto());
+			preparedStatement.executeUpdate();
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
+	}
+
+	public void setInvDTO(InventarioDTO invDTO) {
+		this.invDTO = invDTO;
 	}
 	
 	

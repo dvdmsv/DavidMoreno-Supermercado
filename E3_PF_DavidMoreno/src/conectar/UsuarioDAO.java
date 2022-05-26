@@ -68,7 +68,6 @@ public class UsuarioDAO {
 			}else {
 				correct = false;
 			}
-			conn.desconectar();
 		}catch(Exception e) {
 			
 		}finally {
@@ -162,6 +161,21 @@ public class UsuarioDAO {
 				preparedStatement.executeUpdate();
 			}
 		}catch(Exception e){
+			
+		}finally {
+			conn.desconectar();
+		}
+	}
+	
+	public void modificarContraBD(String nomUsu, String newContra) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("UPDATE usuarios SET CONTRASENA=? WHERE NOMBRE_USUARIO=?;");
+			preparedStatement.setString(1, newContra);
+			preparedStatement.setString(2, nomUsu);
+			preparedStatement.executeUpdate();
+		}catch(Exception e) {
 			
 		}finally {
 			conn.desconectar();

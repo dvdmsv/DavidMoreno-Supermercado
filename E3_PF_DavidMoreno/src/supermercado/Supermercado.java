@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import conectar.InventarioDAO;
 import conectar.UsuarioDAO;
 import conectar.VentasDAO;
+import modelo.InventarioDTO;
 import modelo.UsuarioDTO;
 import vista.login.VentanaLogin;
 import vista.panelusuario.VentanaPanelCesta;
@@ -71,6 +72,15 @@ public class Supermercado {
 	
 	public void modificarPermiso(String nom, int opc) {
 		usuDAO.modificarPermisoBD(nom, opc);
+	}
+	
+	public void modificarContra(String nom, String newContra) {
+		usuDAO.modificarContraBD(nom, newContra);
+	}
+	
+	public void introProd(String nomProd, String famProd, int cantProd, float precProd, float IVA) {
+		InventarioDTO prod = new InventarioDTO(5, nomProd, famProd, cantProd, precProd, IVA);
+		invDAO.crearProductoBD(prod);
 	}
 	
 	public void buscarProducto(String nom, VentanaPanelInventario vpi, int tipoBusqueda) {

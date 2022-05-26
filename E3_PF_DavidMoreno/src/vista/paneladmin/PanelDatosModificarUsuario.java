@@ -6,11 +6,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class PanelDatosModificarUsuario extends JPanel{
 	private JLabel lblNom, lblNewNom, lblContr, lblNewContr, lblInfo;
-	private JTextField jtfNom, jtfNewNom, jtfContr, jtfNewContr;
+	private JTextField jtfNom, jtfNewNom;
+	private JPasswordField jpswContr, jpswNewContr;
 	private JCheckBox admin;
 	
 	public PanelDatosModificarUsuario() {
@@ -22,8 +24,8 @@ public class PanelDatosModificarUsuario extends JPanel{
 		
 		jtfNom = new JTextField();
 		jtfNewNom = new JTextField();
-		jtfContr = new JTextField();
-		jtfNewContr = new JTextField();
+		jpswContr = new JPasswordField();
+		jpswNewContr = new JPasswordField();
 		
 		admin = new JCheckBox("Administrador");
 		
@@ -34,10 +36,10 @@ public class PanelDatosModificarUsuario extends JPanel{
 		this.add(jtfNewNom);
 		
 		this.add(lblContr);
-		this.add(jtfContr);
+		this.add(jpswContr);
 		
 		this.add(lblNewContr);
-		this.add(jtfNewContr);
+		this.add(jpswNewContr);
 		
 		this.add(lblInfo);
 		
@@ -55,12 +57,12 @@ public class PanelDatosModificarUsuario extends JPanel{
 		return jtfNewNom;
 	}
 
-	public JTextField getJtfContr() {
-		return jtfContr;
+	public JPasswordField getJpswContr() {
+		return jpswContr;
 	}
 
-	public JTextField getJtfNewContr() {
-		return jtfNewContr;
+	public JPasswordField getJpswNewContr() {
+		return jpswNewContr;
 	}
 
 	public JLabel getLblInfo() {

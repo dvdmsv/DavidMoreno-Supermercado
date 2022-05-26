@@ -2,6 +2,7 @@ package vista.paneladmin;
 
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -25,5 +26,6 @@ public class GestionarUsuarios extends JPanel {
 		this.add(crear);
 		this.add(eliminar);
 		this.add(modificar);
+		this.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
 	}
 }

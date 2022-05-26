@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -37,9 +38,9 @@ public class Inventario extends JPanel {
 		buscarFam.addActionListener(new ListenerBuscarProducto(this, 3));
 		
 		
-		
 		this.setLayout(new GridLayout(5,1));
 		this.setPreferredSize(new Dimension(800,200));
+		this.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
 	}
 
 	public JLabel getInfoProd() {

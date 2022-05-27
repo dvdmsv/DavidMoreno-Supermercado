@@ -86,6 +86,26 @@ public class InventarioDAO {
 		return existe;
 	}
 	
+	public boolean productoExistePorNomBD(String nomProd) {
+		PreparedStatement preparedStatement = null;
+		Conectar conn = new Conectar();
+		boolean existe = false;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT * FROM inventario WHERE NOMBRE_PRODUCTO = ?;");
+			preparedStatement.setString(1, nomProd);
+			ResultSet resultado = preparedStatement.executeQuery();
+			if(resultado.isBeforeFirst()) {
+				existe = true;
+			}
+		}catch(Exception e) {
+			
+			
+		}finally {
+			conn.desconectar();
+		}
+		return existe;
+	}
+	
 	public int stockDisponibleBD(String cod) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
@@ -114,8 +134,8 @@ public class InventarioDAO {
 			preparedStatement.setString(1, prod.getNomProducto());
 			preparedStatement.setString(2, prod.getFamProducto());
 			preparedStatement.setInt(3, prod.getCantidProducto());
-			preparedStatement.setFloat(4, prod.getPrecioProducto());
-			preparedStatement.setFloat(5, prod.getIvaProducto());
+			preparedStatement.setDouble(4, prod.getPrecioProducto());
+			preparedStatement.setDouble(5, prod.getIvaProducto());
 			preparedStatement.executeUpdate();
 		}catch(Exception e) {
 			

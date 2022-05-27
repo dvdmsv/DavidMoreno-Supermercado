@@ -5,10 +5,10 @@ public class InventarioDTO {
 	private String nomProducto;
 	private String famProducto;
 	private int cantidProducto;
-	private float  precioProducto;
-	private float ivaProducto;
+	private double  precioProducto;
+	private double ivaProducto;
 	
-	public InventarioDTO(int codProducto, String nomProducto, String famProducto, int cantidProducto, float  precioProducto, float ivaProducto) {
+	public InventarioDTO(int codProducto, String nomProducto, String famProducto, int cantidProducto, double  precioProducto, double ivaProducto) {
 		this.codProducto=codProducto;
 		this.nomProducto=nomProducto;
 		this.famProducto=famProducto;
@@ -58,19 +58,19 @@ public class InventarioDTO {
 		this.cantidProducto = cantidProducto;
 	}
 
-	public float getPrecioProducto() {
+	public double getPrecioProducto() {
 		return precioProducto;
 	}
 
-	public void setPrecioProducto(float precioProducto) {
+	public void setPrecioProducto(double precioProducto) {
 		this.precioProducto = precioProducto;
 	}
 
-	public float getIvaProducto() {
+	public double getIvaProducto() {
 		return ivaProducto;
 	}
 
-	public void setIvaProducto(float ivaProducto) {
+	public void setIvaProducto(double ivaProducto) {
 		this.ivaProducto = ivaProducto;
 	}
 

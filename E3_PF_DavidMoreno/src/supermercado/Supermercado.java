@@ -17,6 +17,9 @@ public class Supermercado {
 	private UsuarioDAO usuDAO = new UsuarioDAO();
 	private InventarioDAO invDAO = new InventarioDAO();
 	private VentasDAO venDAO = new VentasDAO();
+	private double IVA4=1.04f;
+	private double IVA10=1.10f;
+	private double IVA21=1.21f;
 	
 	public void login() {
 		VentanaLogin vL = new VentanaLogin();
@@ -78,7 +81,7 @@ public class Supermercado {
 		usuDAO.modificarContraBD(nom, newContra);
 	}
 	
-	public void introProd(String nomProd, String famProd, int cantProd, float precProd, float IVA) {
+	public void introProd(String nomProd, String famProd, int cantProd, double precProd, double IVA) {
 		InventarioDTO prod = new InventarioDTO(5, nomProd, famProd, cantProd, precProd, IVA);
 		invDAO.crearProductoBD(prod);
 	}
@@ -95,6 +98,10 @@ public class Supermercado {
 		return invDAO.productoExisteBD(cod);
 	}
 	
+	public boolean productoExistePorNom(String nom) {
+		return invDAO.productoExistePorNomBD(nom);
+	}
+	
 	public int stockDisponible(String nom) {
 		return invDAO.stockDisponibleBD(nom);
 	}
@@ -109,5 +116,17 @@ public class Supermercado {
 		}else {
 			return false;
 		}
+	}
+
+	public double getIVA4() {
+		return IVA4;
+	}
+
+	public double getIVA10() {
+		return IVA10;
+	}
+
+	public double getIVA21() {
+		return IVA21;
 	}
 }

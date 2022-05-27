@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -12,8 +13,9 @@ import vista.controlador.ListenerIntroducirProd;
 
 public class IntroducirProductos extends JPanel{
 	private JLabel lblNomProd, lblFamProd, lblCantProd, lblPrecProd, lblIVAProd, lblInfo;
-	private JTextField jtfNomProd, jtfFamProd, jtfCantProd, jtfPrecProd, jtfIVAProd;
+	private JTextField jtfNomProd, jtfFamProd, jtfCantProd, jtfPrecProd;
 	private JButton btIntro, btLimpiar;
+	private JComboBox<String> jcIVAProd;
 	
 	public IntroducirProductos() {
 		lblNomProd = new JLabel("Nombre del producto");
@@ -27,11 +29,17 @@ public class IntroducirProductos extends JPanel{
 		jtfFamProd = new JTextField();
 		jtfCantProd = new JTextField();
 		jtfPrecProd = new JTextField();
-		jtfIVAProd = new JTextField();
 		
 		btIntro = new JButton("Introducir producto");
 		btIntro.addActionListener(new ListenerIntroducirProd(this));
+		
 		btLimpiar = new JButton("Limpiar");
+
+		jcIVAProd = new JComboBox<String>();
+		jcIVAProd.addItem("");
+		jcIVAProd.addItem("4%");
+		jcIVAProd.addItem("10%");
+		jcIVAProd.addItem("21%");
 		
 		
 		this.setLayout(new GridLayout(7,2));
@@ -48,7 +56,7 @@ public class IntroducirProductos extends JPanel{
 		this.add(jtfPrecProd);
 		
 		this.add(lblIVAProd);
-		this.add(jtfIVAProd);
+		this.add(jcIVAProd);
 		
 		this.add(btIntro);
 		this.add(btLimpiar);
@@ -74,8 +82,9 @@ public class IntroducirProductos extends JPanel{
 		return jtfPrecProd;
 	}
 
-	public JTextField getJtfIVAProd() {
-		return jtfIVAProd;
+	
+	public JComboBox<String> getJcIVAProd() {
+		return jcIVAProd;
 	}
 
 	public JLabel getLblInfo() {

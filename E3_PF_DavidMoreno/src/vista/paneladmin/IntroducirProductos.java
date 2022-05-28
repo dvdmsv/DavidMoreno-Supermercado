@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import vista.controlador.ListenerIntroducirProd;
+import vista.controlador.ListenerLimpiarCamposProd;
 
 public class IntroducirProductos extends JPanel{
 	private JLabel lblNomProd, lblFamProd, lblCantProd, lblPrecProd, lblIVAProd, lblInfo;
@@ -34,6 +35,7 @@ public class IntroducirProductos extends JPanel{
 		btIntro.addActionListener(new ListenerIntroducirProd(this));
 		
 		btLimpiar = new JButton("Limpiar");
+		btLimpiar.addActionListener(new ListenerLimpiarCamposProd(this));
 
 		jcIVAProd = new JComboBox<String>();
 		jcIVAProd.addItem("");

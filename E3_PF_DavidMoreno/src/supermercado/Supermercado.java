@@ -129,4 +129,22 @@ public class Supermercado {
 	public double getIVA21() {
 		return IVA21;
 	}
+	
+	public boolean isInt(String cadena) {
+		try {
+			Integer.parseInt(cadena);
+			return true;
+		}catch(NumberFormatException nfe) {
+			return false;
+		}
+	}
+	
+	public boolean isFloat(String cadena) {
+		try {
+			Float.parseFloat(cadena);
+			return true;
+		}catch(NumberFormatException nfe) {
+			return false;
+		}
+	}
 }

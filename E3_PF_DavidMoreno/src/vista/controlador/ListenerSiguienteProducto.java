@@ -26,12 +26,12 @@ public class ListenerSiguienteProducto implements ActionListener{
 				caja.getLblInfo().setText("El producto ya esta en la cesta");
 				caja.getLblInfo().setForeground(Color.red);
 			}else { //Si el producto no está en el arraylist
-				if(caja.getJtfCantidadProd().getText().isEmpty() || caja.getJtfCantidadProd().getText().equals("0")) { //Comprueba si el campo de cantidad producto esta vacio o es igual a 0 (SOLUCIONAR PONER SOLO VALORES NUMERICOS)
+				if(caja.getJtfCantidadProd().getText().isEmpty() || caja.getJtfCantidadProd().getText().equals("0") || !superm.isInt(caja.getJtfCantidadProd().getText())) { //Da error si el campo cantidad esta vacio o si es igual a 0 o si no es un numero entero
 					caja.getLblInfo().setText("Introducir cantidad correcta");
 					caja.getLblInfo().setForeground(Color.red);
 					caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 25));
 					caja.getJtfCantidadProd().setText("");
-				}else { //Si el campo de texto no está vacio ni contiene un 0
+				}else { //Si el campo de texto no está vacio ni contiene un 0 y es un entero
 					if(Integer.parseInt(caja.getJtfCantidadProd().getText()) <= superm.stockDisponible(caja.getJtfCodProd().getText())) { //Comprueba si hay stock disponible. Si la cantidad escrita es menor o igual a la cantidad de stock	
 						codProd.add(caja.getJtfCodProd().getText()); //Se añade al ArrayList de codigos de producto el codigo de producto
 						cantProd.add(caja.getJtfCantidadProd().getText()); //Se añade al ArrayList de cantidades la cantidad seleccionada

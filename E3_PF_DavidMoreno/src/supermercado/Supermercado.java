@@ -102,6 +102,12 @@ public class Supermercado {
 		return invDAO.productoExistePorNomBD(nom);
 	}
 	
+	public void eliminarProducto(String cod) {
+		invDAO.eliminarProductoBD(cod);
+	}
+	
+	
+	
 	public int stockDisponible(String nom) {
 		return invDAO.stockDisponibleBD(nom);
 	}

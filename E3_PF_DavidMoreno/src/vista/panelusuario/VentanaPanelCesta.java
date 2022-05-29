@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 import vista.controlador.ListenerEliminarProdCesta;
+import vista.controlador.ListenerFinalizarCompra;
+import vista.controlador.ListenerSiguienteProducto;
 
 public class VentanaPanelCesta extends JFrame {
 	private JTable tabla;
@@ -22,7 +24,9 @@ public class VentanaPanelCesta extends JFrame {
 	Object [] data = new Object[5];
 	private JButton finalizar, eliminar;
 	private JLabel total;
-	public VentanaPanelCesta() {
+	private ListenerSiguienteProducto listenerSiguiente;
+	
+	public VentanaPanelCesta(ListenerSiguienteProducto listenerSiguiente) {
 		super("GALDI -Panel de cesta-");
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -48,10 +52,11 @@ public class VentanaPanelCesta extends JFrame {
 		Panelfinalizar.add(total);
 		
 		finalizar = new JButton("Finalizar compra");
+		finalizar.addActionListener(new ListenerFinalizarCompra(this));
 		Panelfinalizar.add(finalizar);
 		
 		eliminar = new JButton("Eliminar producto");
-		eliminar.addActionListener(new ListenerEliminarProdCesta(this));
+		eliminar.addActionListener(new ListenerEliminarProdCesta(this, listenerSiguiente));
 		Panelfinalizar.add(eliminar);
 		
 		

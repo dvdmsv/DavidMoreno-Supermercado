@@ -143,9 +143,23 @@ public class InventarioDAO {
 			conn.desconectar();
 		}
 	}
-
-	public void setInvDTO(InventarioDTO invDTO) {
-		this.invDTO = invDTO;
+	
+	public void eliminarProductoBD(String cod) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("DELETE FROM inventario WHERE CODIGO_PRODUCTO=?;");
+			preparedStatement.setString(1, cod);
+			preparedStatement.executeUpdate();
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
+	}
+	
+	public void descontarStock(String nom) {
+		
 	}
 	
 	

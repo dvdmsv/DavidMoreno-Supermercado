@@ -24,7 +24,7 @@ public class ListenerGenerarCesta implements ActionListener{
 		
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		VentanaPanelCesta vpc = new VentanaPanelCesta(); //Se instancia VentanaPanelCesta
+		VentanaPanelCesta vpc = new VentanaPanelCesta(listenerSiguiente); //Se instancia VentanaPanelCesta
 		DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
 		simbolos.setDecimalSeparator('.');
 		DecimalFormat formatoNum = new DecimalFormat("0.00", simbolos);
@@ -49,7 +49,7 @@ public class ListenerGenerarCesta implements ActionListener{
 			total += Float.parseFloat(vpc.getModelo().getValueAt(i, 4).toString());
 		}
 		
-		vpc.getTotal().setText("Total: " + formatoNum.format(total) + "€");
+		vpc.getTotal().setText("TOTAL: " + formatoNum.format(total) + "€");
 		vpc.getTotal().setFont(new Font("Serif", Font.PLAIN, 15));
 	}
 

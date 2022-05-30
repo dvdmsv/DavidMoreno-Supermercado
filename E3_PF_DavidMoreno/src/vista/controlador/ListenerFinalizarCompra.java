@@ -18,10 +18,12 @@ public class ListenerFinalizarCompra implements ActionListener{
 	private ArrayList<String> ivaProd = new ArrayList<String>();
 	private ArrayList<String> precTotalProd = new ArrayList<String>();
 	private VentanaPanelCesta vpc;
+	private ListenerSiguienteProducto listenerSiguiente;
 	private Supermercado superm = new Supermercado();
 	
-	public ListenerFinalizarCompra(VentanaPanelCesta vpc) {
+	public ListenerFinalizarCompra(VentanaPanelCesta vpc, ListenerSiguienteProducto listenerSiguiente) {
 		this.vpc = vpc;
+		this.listenerSiguiente = listenerSiguiente;
 	}
 	
 	@Override
@@ -36,11 +38,11 @@ public class ListenerFinalizarCompra implements ActionListener{
 		}
 		
 		for(int i=0; i<nombreProd.size(); i++) {
-			superm.eliminarProducto(null);
+			superm.descontarStock(Integer.parseInt(cantidadProd.get(i)), listenerSiguiente.getCodProd().get(i));
 		}
 		
 		for(int b=0; b<nombreProd.size(); b++) {
-			System.out.println(nombreProd.get(b));
+			System.out.println(nombreProd.get(b) + " " + listenerSiguiente.getCodProd().get(b));
 		}
 		PlantillaPFD pl1 = new PlantillaPFD(nombreProd, cantidadProd, precioProd, ivaProd, precTotalProd, vpc.getTotal().getText());
 		pl1.crearPlantilla();

@@ -106,10 +106,14 @@ public class Supermercado {
 		invDAO.eliminarProductoBD(cod);
 	}
 	
-	
-	
 	public int stockDisponible(String nom) {
 		return invDAO.stockDisponibleBD(nom);
+	}
+	
+	public void descontarStock(int cantid, String cod) {
+		int stockFinal = invDAO.stockDisponibleBD(cod) - cantid;
+		invDAO.cambiarStockBD(0, cod);
+		
 	}
 	
 	public void anadirVenta() {

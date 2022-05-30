@@ -24,7 +24,6 @@ public class VentanaPanelCesta extends JFrame {
 	Object [] data = new Object[5];
 	private JButton finalizar, eliminar;
 	private JLabel total;
-	private ListenerSiguienteProducto listenerSiguiente;
 	
 	public VentanaPanelCesta(ListenerSiguienteProducto listenerSiguiente) {
 		super("GALDI -Panel de cesta-");
@@ -52,7 +51,7 @@ public class VentanaPanelCesta extends JFrame {
 		Panelfinalizar.add(total);
 		
 		finalizar = new JButton("Finalizar compra");
-		finalizar.addActionListener(new ListenerFinalizarCompra(this));
+		finalizar.addActionListener(new ListenerFinalizarCompra(this, listenerSiguiente));
 		Panelfinalizar.add(finalizar);
 		
 		eliminar = new JButton("Eliminar producto");

@@ -111,10 +111,9 @@ public class InventarioDAO {
 		Conectar conn = new Conectar();
 		int stock = 0;
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO = ?;");
+			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO =?;");
 			preparedStatement.setString(1, cod);
 			ResultSet resultado = preparedStatement.executeQuery();
-			//stock = resultado.getInt(1);
 			while(resultado.next()) {
 				stock = resultado.getInt(1);
 			}
@@ -158,9 +157,18 @@ public class InventarioDAO {
 		}
 	}
 	
-	public void descontarStock(String nom) {
-		
+	public void cambiarStockBD(int cantid, String nom) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("UPDATE inventario SET CANTIDAD_PRODUCTO=? WHERE NOMBRE_PRODUCTO=?;");
+			preparedStatement.setInt(1, cantid);
+			preparedStatement.setString(2, nom);
+			preparedStatement.executeUpdate();
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
 	}
-	
-	
 }

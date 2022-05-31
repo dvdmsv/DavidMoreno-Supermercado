@@ -15,6 +15,7 @@ public class PanelAdmin extends JPanel{
 	private Inventario inventario;
 	private GestionarUsuarios gestionarUsu;
 	private IntroducirProductos introProd;
+	private Ventas ventas;
 	
 	public PanelAdmin() {
 		JTabbedPane jtp = new JTabbedPane();
@@ -22,11 +23,13 @@ public class PanelAdmin extends JPanel{
 		inventario = new Inventario();
 		gestionarUsu = new GestionarUsuarios();
 		introProd = new IntroducirProductos();
+		ventas = new Ventas();
 		
 		jtp.add("Caja", caja);
 		jtp.add("Inventario", inventario);
 		jtp.add("Gestionar Usuarios", gestionarUsu);
 		jtp.add("Introducir productos", introProd);
+		jtp.add("Ventas", ventas);
 		
 		
 		this.add(jtp);

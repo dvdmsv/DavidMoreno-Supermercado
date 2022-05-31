@@ -44,6 +44,25 @@ public class InventarioDAO {
 		}
 	}
 	
+	public int getCodProdBD(String nom) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		int cod = 0;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT CODIGO_PRODUCTO from inventario WHERE NOMBRE_PRODUCTO=?;");
+			preparedStatement.setString(1, nom);
+			ResultSet resultado = preparedStatement.executeQuery();
+			while(resultado.next()) {
+				cod = resultado.getInt(1);
+			}
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
+		return cod;
+	}
+	
 	public void buscarProductoPorCodBD(String cod, VentanaPanelCesta vpc) { //Recibe un codigo, el JFrame de VentanaPanelCesta
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();

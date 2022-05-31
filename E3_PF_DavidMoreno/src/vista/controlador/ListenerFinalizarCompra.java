@@ -2,6 +2,7 @@ package vista.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -39,12 +40,18 @@ public class ListenerFinalizarCompra implements ActionListener{
 			precTotalProd.add(vpc.getModelo().getValueAt(i, 4).toString());
 		}
 		
-		for(int i=0; i<nombreProd.size(); i++) {
+		for(int i=0; i<nombreProd.size(); i++) { //Bucle para descontar stock
 			superm.descontarStock(Integer.parseInt(cantidadProd.get(i)), listenerSiguiente.getCodProd().get(i));
 		}
 		
 		PlantillaPDF pl1 = new PlantillaPDF(nombreProd, cantidadProd, precioProd, ivaProd, precTotalProd, vpc.getTotal().getText());
 		pl1.crearPlantilla();
+		
+		
+		for(int i=0; i<nombreProd.size(); i++) {
+			//superm.anadirVenta(listenerSiguiente.getCodProd().get(i), nombreProd.get(i), listenerSiguiente.getCantProd().get(i), "2020", "0");
+			System.out.println(listenerSiguiente.getCodProd().get(i) + nombreProd.get(i) + listenerSiguiente.getCantProd().get(i) + LocalDate.now().toString() + "0");
+		}
 		
 		int tamanoListaCesta = listenerSiguiente.getCodProd().size(); //Se tiene que guardar el tamaño del array antes de eliminar elementos del mismo porque si no al iterar sobre el va disminuyendo su tamaño y no elimina bien
 		for(int i=0; i<tamanoListaCesta; i++) { //Despues de realizar la compra vacia el ArrayList que contiene los productos de la tabla. Asi está vacio para la siguiente compra
@@ -54,9 +61,6 @@ public class ListenerFinalizarCompra implements ActionListener{
 		JOptionPane.showMessageDialog(null, "Compra realizada");
 		
 		vpc.dispose();
-		
-		
-		
 	}
 
 }

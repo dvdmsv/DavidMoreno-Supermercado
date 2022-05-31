@@ -18,12 +18,8 @@ public class VentanaPanelAdmin extends JFrame{
 		panelAdmin = new PanelAdmin();
 		this.getContentPane().add(panelAdmin);
 
-		
-		
 		menu = new CerrarSesion(this);
 		this.setJMenuBar(menu);
-		
-		
 		
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);

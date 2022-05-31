@@ -157,13 +157,13 @@ public class InventarioDAO {
 		}
 	}
 	
-	public void cambiarStockBD(int cantid, String nom) {
+	public void cambiarStockBD(int cantid, String cod) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("UPDATE inventario SET CANTIDAD_PRODUCTO=? WHERE NOMBRE_PRODUCTO=?;");
+			preparedStatement = conn.getConnect().prepareStatement("UPDATE inventario SET CANTIDAD_PRODUCTO=? WHERE CODIGO_PRODUCTO=?;");
 			preparedStatement.setInt(1, cantid);
-			preparedStatement.setString(2, nom);
+			preparedStatement.setString(2, cod);
 			preparedStatement.executeUpdate();
 		}catch(Exception e) {
 			

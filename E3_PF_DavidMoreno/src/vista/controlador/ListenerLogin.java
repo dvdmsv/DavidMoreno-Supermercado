@@ -36,12 +36,11 @@ public class ListenerLogin implements ActionListener {
 				vL.dispose();
 				VentanaPanelAdmin pA = new VentanaPanelAdmin();
 			}else { //Si el usuario es un usuario normal
-				mensajeErr.getLb().setForeground(Color.BLACK);
-				mensajeErr.getLb().setText("Login correcto");
 				vL.setVisible(false);
 				vL.dispose();
 				VentanaPanelUsuario vpU = new VentanaPanelUsuario();
 			}
+			Usuario.setUsuarioLogueado(this.usuario.getJtf().getText()); 
 		}else { //Si el nombre de usuario o la contraseña estan incorrectos
 			mensajeErr.getLb().setText("Usuario " + usuario.getJtf().getText() + " no existe o contraseña incorrecta");
 			mensajeErr.setBackground(Color.BLACK);

@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 public class Usuario extends JPanel{
 	private JLabel lb1;
 	private JTextField jtf;
+	private static String usuarioLogueado;
 	
 	public Usuario() {
 		lb1 = new JLabel("Nombre de usuario ");
@@ -31,5 +32,14 @@ public class Usuario extends JPanel{
 	public JTextField getJtf() {
 		return jtf;
 	}
+
 	
+	
+	public static void setUsuarioLogueado(String usuarioLogueado) {
+		Usuario.usuarioLogueado = usuarioLogueado;
+	}
+
+	public static String getUsuarioLogueado() {
+		return usuarioLogueado;
+	}
 }

@@ -26,6 +26,8 @@ public class VentanaLogin extends JFrame {
 		
 		this.getContentPane().add(pl);
 		this.pack();
+		
+		
 	}
 	
 	public void cerrarVentana() {

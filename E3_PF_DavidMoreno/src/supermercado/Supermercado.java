@@ -112,7 +112,7 @@ public class Supermercado {
 	
 	public void descontarStock(int cantid, String cod) {
 		int stockFinal = invDAO.stockDisponibleBD(cod) - cantid;
-		invDAO.cambiarStockBD(0, cod);
+		invDAO.cambiarStockBD(stockFinal, cod);
 		
 	}
 	

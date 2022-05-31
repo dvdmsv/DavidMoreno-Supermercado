@@ -39,7 +39,6 @@ public class ListenerGenerarCesta implements ActionListener{
 			float iva = Float.parseFloat(vpc.getData()[3].toString()); //Se obtiene el IVA del producto en int
 			float resultado = (cantidad*precio)*iva; //Se saca al calculo total
 			
-			//vpc.getData()[4] = Float.toString(resultado); 
 			vpc.getData()[4] = formatoNum.format(resultado); //Se almacena en la posicion 4 del array
 			vpc.getModelo().addRow(vpc.getData()); //Se añade la fila a la tabla
 		}

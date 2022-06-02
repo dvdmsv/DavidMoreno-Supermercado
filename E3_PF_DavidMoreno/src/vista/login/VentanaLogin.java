@@ -7,11 +7,17 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-
+/**
+ * 
+ * Clase VentanaLogin
+ *
+ */
 public class VentanaLogin extends JFrame {
 	private PanelLogin pl = new PanelLogin(this);
 	private FondoImagen fondo = new FondoImagen();
-	
+	/**
+	 * 
+	 */
 	public VentanaLogin() {
 		super("GALDI -Login-");
 		

@@ -9,11 +9,23 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-
+/**
+ * Clase que contiene un JPanel con la contraseña del usuario
+ * @author David
+ *
+ */
 public class Contrasena extends JPanel{
+	/**
+	 * JLabel que indica que el campo a su derecha es el de la contraseña
+	 */
 	private JLabel lb1;
+	/**
+	 * JPasswordField que contiene la contraseña de usuario
+	 */
 	private JPasswordField jpswf;
-	
+	/**
+	 * Constructor de Contrasena
+	 */
 	public Contrasena() {
 		lb1 = new JLabel("Password");
 		this.add(lb1);
@@ -32,7 +44,10 @@ public class Contrasena extends JPanel{
 
 		this.setBackground(Color.decode("#04FCFC"));
 	}
-
+	/**
+	 * Metodo para obtener la contraseña 
+	 * @return jpswf
+	 */
 	public JPasswordField getJpswf() {
 		return jpswf;
 	}

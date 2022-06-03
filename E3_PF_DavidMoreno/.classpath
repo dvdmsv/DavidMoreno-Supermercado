@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="mysql-connector-java-8.0.28.jar"/>
-	<classpathentry kind="lib" path="C:/Users/David/Desktop/DAW/Programación/Actividades/Java/PF/E3_PF_DavidMoreno/itextpdf-5.4.0.jar"/>
+	<classpathentry kind="lib" path="D:/DAW/Programación/Actividades/Java/PF/DavidMoreno-Supermercado/E3_PF_DavidMoreno/itextpdf-5.4.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

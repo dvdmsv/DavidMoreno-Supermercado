@@ -26,7 +26,7 @@ public class CerrarSesion extends JMenuBar{
 		this.add(cerrarSesion);
 	}
 	/**
-	 * Constructor de CerrarSesion para los usuarios administradores
+	 * Constructor de CerrarSesion para los usuarios administradores. Recibe como parametro el JFrame que contiene la ventana login
 	 * @param panelAdmin
 	 */
 	public CerrarSesion(VentanaPanelAdmin panelAdmin) {

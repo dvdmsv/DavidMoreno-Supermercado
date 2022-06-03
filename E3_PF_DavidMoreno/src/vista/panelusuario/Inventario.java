@@ -50,15 +50,16 @@ public class Inventario extends JPanel {
 		buscarCod = new JButton("Buscar producto por codigo");
 		buscarFam = new JButton("Buscar producto por familia");
 		
+		buscarNom.addActionListener(new ListenerBuscarProducto(this, 1));
+		buscarCod.addActionListener(new ListenerBuscarProducto(this, 2));
+		buscarFam.addActionListener(new ListenerBuscarProducto(this, 3));
+		
 		
 		this.add(nomProd);
 		this.add(jtfNomProd);
 		this.add(buscarNom);
 		this.add(buscarCod);
 		this.add(buscarFam);
-		buscarNom.addActionListener(new ListenerBuscarProducto(this, 1));
-		buscarCod.addActionListener(new ListenerBuscarProducto(this, 2));
-		buscarFam.addActionListener(new ListenerBuscarProducto(this, 3));
 		
 		
 		this.setLayout(new GridLayout(5,1));

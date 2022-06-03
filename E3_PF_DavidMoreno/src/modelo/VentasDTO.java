@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class VentasDTO {
 	int numVenta;
-	String codProducto;
+	int codProducto;
 	String nomProducto;
-	String cantidVendida;
+	int cantidVendida;
 	String fechaVenta;
-	String numEmpleado;
+	int numEmpleado;
 	
-	public VentasDTO(int numVenta, String codProducto, String nomProducto, String cantidVendida, String fechaVenta, String numEmpleado) {
+	public VentasDTO(int numVenta, int codProducto, String nomProducto, int cantidVendida, String fechaVenta, int numEmpleado) {
 		this.numVenta = numVenta;
 		this.codProducto = codProducto;
 		this.nomProducto = nomProducto;
@@ -21,14 +21,18 @@ public class VentasDTO {
 	
 	public VentasDTO() {
 		this.numVenta = 0;
-		this.codProducto = "0";
+		this.codProducto = 0;
 		this.nomProducto = "";
-		this.cantidVendida = "0";
+		this.cantidVendida = 0;
 		this.fechaVenta = "";
-		this.numEmpleado = "0";
+		this.numEmpleado = 0;
 	}
 
-	public String getCodProducto() {
+	public int getNumVenta() {
+		return numVenta;
+	}
+
+	public int getCodProducto() {
 		return codProducto;
 	}
 
@@ -36,7 +40,7 @@ public class VentasDTO {
 		return nomProducto;
 	}
 
-	public String getCantidVendida() {
+	public int getCantidVendida() {
 		return cantidVendida;
 	}
 
@@ -44,7 +48,7 @@ public class VentasDTO {
 		return fechaVenta;
 	}
 
-	public String getNumEmpleado() {
+	public int getNumEmpleado() {
 		return numEmpleado;
 	}
 }

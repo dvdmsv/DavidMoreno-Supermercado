@@ -11,6 +11,7 @@ import modelo.InventarioDTO;
 import modelo.UsuarioDTO;
 import modelo.VentasDTO;
 import vista.login.VentanaLogin;
+import vista.paneladmin.VentanaPanelVentas;
 import vista.panelusuario.VentanaPanelCesta;
 import vista.panelusuario.VentanaPanelInventario;
 
@@ -121,8 +122,8 @@ public class Supermercado {
 		return invDAO.getCodProdBD(nomProd);
 	}
 	
-	public void anadirVenta(String codProducto, String nomProducto, String cantidVendida, String fechaVenta, String numEmpleado) {
-		VentasDTO venDTO = new VentasDTO(0, codProducto, nomProducto, cantidVendida, fechaVenta, numEmpleado);
+	public void anadirVenta(int codProducto, String nomProducto, int cantidVendida, String fechaVenta, int numEmpleado) {
+		VentasDTO venDTO = new VentasDTO(5050, codProducto, nomProducto, cantidVendida, fechaVenta, numEmpleado);
 		venDAO.anadirVentaBD(venDTO);
 	}
 	
@@ -132,6 +133,14 @@ public class Supermercado {
 		}else {
 			return false;
 		}
+	}
+	
+	public void buscarVenta(String nom, VentanaPanelVentas vpv, int tipoBusqueda) {
+		venDAO.buscarVentaBD(nom, vpv, tipoBusqueda);
+	}
+	
+	public int getCodUsu(String nomUsu) {
+		return usuDAO.getCodUsuarioBD(nomUsu);
 	}
 
 	public double getIVA4() {

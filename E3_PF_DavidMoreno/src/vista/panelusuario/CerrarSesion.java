@@ -38,5 +38,4 @@ public class CerrarSesion extends JMenuBar{
 		
 		this.add(cerrarSesion);
 	}
-
 }

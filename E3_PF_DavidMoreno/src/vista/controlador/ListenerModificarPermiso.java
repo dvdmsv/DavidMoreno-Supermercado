@@ -7,15 +7,30 @@ import java.awt.event.ActionListener;
 
 import supermercado.Supermercado;
 import vista.paneladmin.PanelDatosModificarUsuario;
-
+/**
+ * Clase que contiene la logica para modificar el permiso de un usuario
+ * @author David
+ *
+ */
 public class ListenerModificarPermiso implements ActionListener{
+	/**
+	 * Panel con los datos para modificar el usuario
+	 */
 	private PanelDatosModificarUsuario pdmu;
+	/**
+	 * Clase que contienetodos los metodos de la aplicacion
+	 */
 	private Supermercado superm = new Supermercado();
-	
+	/**
+	 * Constructor de ListenerModificarPermiso
+	 * @param pdmu Panel con los datos para modificar el usuario
+	 */
 	public ListenerModificarPermiso(PanelDatosModificarUsuario pdmu) {
 		this.pdmu = pdmu;
 	}
-	
+	/**
+	 * Metodo con la logica para modificar el permiso de administrador en un usuario
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(pdmu.getAdmin().isSelected()) { //Si la casilla está marcada

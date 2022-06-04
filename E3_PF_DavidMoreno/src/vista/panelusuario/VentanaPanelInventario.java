@@ -7,12 +7,27 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-
+/**
+ * Clase que contiene el JFrame con la ventana del inventario
+ * @author David
+ *
+ */
 public class VentanaPanelInventario extends JFrame {
+	/**
+	 * Tabla que contiene los productos en el inventario
+	 */
 	private JTable tabla;
+	/**
+	 * Modelo que contiene los datos del inventario
+	 */
 	private DefaultTableModel modelo;
+	/**
+	 * Array donde se guardan los datos del inventario
+	 */
 	Object [] data = new Object[6];
-	
+	/**
+	 * Constructor de VentanaPanelInvenrario
+	 */
 	public VentanaPanelInventario() {
 		super("GALDI -Panel de inventario-");
 		
@@ -40,15 +55,24 @@ public class VentanaPanelInventario extends JFrame {
 		this.setSize(new Dimension(1000, 500));
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	}
-	
+	/**
+	 * Metodo que devuelve la tabla
+	 * @return tabla
+	 */
 	public JTable getTabla() {
 		return tabla;
 	}
-
+	/**
+	 * Metodo que devuelve el modelo con los datos
+	 * @return modelo
+	 */
 	public DefaultTableModel getModelo() {
 		return modelo;
 	}
-
+	/**
+	 * Metodo que devuelve el array con los datos
+	 * @return data
+	 */
 	public Object[] getData() {
 		return data;
 	}

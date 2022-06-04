@@ -8,17 +8,38 @@ import java.util.ArrayList;
 
 import supermercado.Supermercado;
 import vista.panelusuario.Caja;
-
+/**
+ * Clase que contiene la logica para ir pasando los productos que se van a comprar
+ * @author David
+ *
+ */
 public class ListenerSiguienteProducto implements ActionListener{
+	/**
+	 * ArrayList que contiene el codigo de los productos
+	 */
 	private ArrayList<String> codProd = new ArrayList<String>();
+	/**
+	 * ArrayList que contiene las cantidades de los productos
+	 */
 	private ArrayList<String> cantProd = new ArrayList<String>();
+	/**
+	 * JPanel que contiene los campos del producto
+	 */
 	private Caja caja;
+	/**
+	 * Clase qe contiene todos los metodos de la aplicacion
+	 */
 	private Supermercado superm = new Supermercado();
-	
+	/**
+	 * Constructor de ListenerSiguienteProducto
+	 * @param caja JPanel que contiene los campos del producto
+	 */
 	public ListenerSiguienteProducto(Caja caja) {
 		this.caja = caja;
 	}
-	
+	/**
+	 * Metodo que contiene la logica para ir metiendo los productos a comprar en los ArrayList
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(superm.productoExiste(caja.getJtfCodProd().getText())) { //Comprueba si el producto existe en la base de datos
@@ -55,11 +76,17 @@ public class ListenerSiguienteProducto implements ActionListener{
 			caja.getJtfCodProd().setText("");
 		}
 	}
-
+	/**
+	 * Metodo que devuelve el ArrayList con los codigos de producto
+	 * @return codProd contiene los codigos de productos que se han ido pasando por caja
+	 */
 	public ArrayList<String> getCodProd() {
 		return codProd;
 	}
-
+	/**
+	 * Metodo que devuelve el ArrayList con las cantidades de producto
+	 * @return cantProd contiene las cantidades de productos que se han ido pasando por caja
+	 */
 	public ArrayList<String> getCantProd() {
 		return cantProd;
 	}

@@ -7,16 +7,33 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
 import vista.panelusuario.VentanaPanelCesta;
-
+/**
+ * Clase que contiene la logica para eliminar productos de la cesta
+ * @author David
+ *
+ */
 public class ListenerEliminarProdCesta implements ActionListener{
+	/**
+	 * Ventana que contiene la cesta
+	 */
 	private VentanaPanelCesta vpc;
+	/**
+	 * Listener con los productos que han ido pasando
+	 */
 	private ListenerSiguienteProducto listenerSiguiente;
-	
+	/**
+	 * Constructor de la clase ListenerEliminarProdCesta
+	 * @param vpc Ventana que contiene la cesta
+	 * @param listenerSiguiente Listener con los productos que han ido pasando
+	 */
 	public ListenerEliminarProdCesta(VentanaPanelCesta vpc, ListenerSiguienteProducto listenerSiguiente) {
 		this.vpc = vpc;
 		this.listenerSiguiente = listenerSiguiente;
 	}
 	
+	/**
+	 * Metodo que contiene la logica para eliminar productos de la cesta
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
@@ -41,5 +58,4 @@ public class ListenerEliminarProdCesta implements ActionListener{
 			}
 		}
 	}
-
 }

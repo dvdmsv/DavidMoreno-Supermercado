@@ -14,7 +14,7 @@ import vista.paneladmin.VentanaPanelAdmin;
 public class CerrarSesion extends JMenuBar{
 	/**
 	 * Constructor de CerrarSesion para los usuarios normales
-	 * @param panelUsuario
+	 * @param panelUsuario Recibe como parametro el panel del usuario no administrador
 	 */
 	public CerrarSesion(VentanaPanelUsuario panelUsuario) {
 		JMenu cerrarSesion = new JMenu("Cerrar sesion");
@@ -22,19 +22,6 @@ public class CerrarSesion extends JMenuBar{
 		
 		cerrarSesion.add(salir);
 		salir.addActionListener(new ListenerCerrarSesion(panelUsuario));
-		
-		this.add(cerrarSesion);
-	}
-	/**
-	 * Constructor de CerrarSesion para los usuarios administradores. Recibe como parametro el JFrame que contiene la ventana login
-	 * @param panelAdmin
-	 */
-	public CerrarSesion(VentanaPanelAdmin panelAdmin) {
-		JMenu cerrarSesion = new JMenu("Cerrar sesion");
-		JMenuItem salir = new JMenuItem("Salir");
-		
-		cerrarSesion.add(salir);
-		salir.addActionListener(new ListenerCerrarSesion(panelAdmin));
 		
 		this.add(cerrarSesion);
 	}

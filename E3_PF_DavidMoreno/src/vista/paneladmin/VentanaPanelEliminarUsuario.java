@@ -11,12 +11,31 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import vista.controlador.ListenerEliminarUsuario;
-
+/**
+ * Clase que contiene la ventana con el panel para eliminar usuarios
+ * @author David
+ *
+ */
 public class VentanaPanelEliminarUsuario extends JFrame{
-	private JLabel lblNombreUsu, lblInfo;
+	/**
+	 * JLabel que indica que el campo a su derecha es el del nombre de usuario
+	 */
+	private JLabel lblNombreUsu; 
+	/**
+	 * JLabel que mostrará informacion sobre la eliminación del usuario
+	 */
+	private JLabel lblInfo;
+	/**
+	 * JTextField que almacena el nombre de usuario a eliminar
+	 */
 	private JTextField jtfNombreUsu;
+	/**
+	 * Boton para iniciar el proceso de eliminación
+	 */
 	private JButton eliminar;
-	
+	/**
+	 * Constructor de la clase VentanaPanelEliminarUsuario
+	 */
 	public VentanaPanelEliminarUsuario() {
 		super("GALDI -Eliminar Usuario-");
 		JPanel panel = new JPanel();
@@ -24,7 +43,6 @@ public class VentanaPanelEliminarUsuario extends JFrame{
 		lblInfo = new JLabel();
 		jtfNombreUsu = new JTextField();
 		eliminar = new JButton("Eliminar");
-		
 		
 		panel.add(lblNombreUsu);
 		panel.add(jtfNombreUsu);
@@ -42,11 +60,17 @@ public class VentanaPanelEliminarUsuario extends JFrame{
 		this.setResizable(false);
 		this.setSize(new Dimension(600, 400));
 	}
-
+	/**
+	 * Metodo que devuelve el JLabel para informar
+	 * @return lblInfo mostrará informacion sobre la eliminación del usuario
+	 */
 	public JLabel getLblInfo() {
 		return lblInfo;
 	}
-
+	/**
+	 * Metodo que devuelve el JTextField que contiene el nombre de usuario
+	 * @return jtfNombreUsu contiene el nombre de usuario a eliminar
+	 */
 	public JTextField getJtfNombreUsu() {
 		return jtfNombreUsu;
 	}

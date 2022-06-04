@@ -6,10 +6,20 @@ import java.sql.ResultSet;
 
 import modelo.VentasDTO;
 import vista.paneladmin.VentanaPanelVentas;
-
+/**
+ * Clase que contiene las consultas a la base de datos
+ * @author David
+ *
+ */
 public class VentasDAO {
+	/**
+	 * Objeto VentasDTO
+	 */
 	VentasDTO venDTO = new VentasDTO();
-	
+	/**
+	 * Metodo que añade una venta a la base de datos
+	 * @param venta Objeto VentaDTO
+	 */
 	public void anadirVentaBD(VentasDTO venta) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
@@ -28,7 +38,12 @@ public class VentasDAO {
 			conn.desconectar();
 		}
 	}
-	
+	/**
+	 * Metodo que busca ventas de la base de datos
+	 * @param nom nombre del dato a buscar
+	 * @param vpv ventana de ventas
+	 * @param tipoBusqueda tipo de busqueda
+	 */
 	public void buscarVentaBD(String nom, VentanaPanelVentas vpv, int tipoBusqueda) {
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();

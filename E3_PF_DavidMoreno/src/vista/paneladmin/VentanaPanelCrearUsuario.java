@@ -13,15 +13,44 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import vista.controlador.ListenerCrearUsuario;
-
+/**
+ * Clase que contiene la ventana con el panel para crear usuarios
+ * @author David
+ *
+ */
 public class VentanaPanelCrearUsuario extends JFrame{
-	private JLabel lblNombreUsu, lblContrasena, lblInfo;
+	/**
+	 * JLabel que indica que el campo a su derecha es el del nombre de usuario
+	 */
+	private JLabel lblNombreUsu;
+	/**
+	 * JLabel que indica que el campo a su derecha es el de la contraseña
+	 */
+	private JLabel lblContrasena; 
+	/**
+	 * JLabel que muestra posibles errores
+	 */
+	private JLabel lblInfo;
+	/**
+	 * JPasswordField que contiene la contraseña
+	 */
 	private JPasswordField jtpswContrasena;
+	/**
+	 * JTextField que contiene el nombre de usuario
+	 */
 	private JTextField jtfNombreUsu;
+	/**
+	 * JCheckBox que habilita si el usuario va a tener permisos de administrador
+	 */
 	private JCheckBox admin;
+	/**
+	 * Boton para iniciar el proceso de creacion del usuario
+	 */
 	private JButton crear;
 	
-	
+	/**
+	 * Contructor de la clase VentanaPanelCrearUsuario
+	 */
 	public VentanaPanelCrearUsuario() {
 		super("GALDI -Crear Usuario-");
 		JPanel panel = new JPanel();
@@ -52,26 +81,32 @@ public class VentanaPanelCrearUsuario extends JFrame{
 		this.setResizable(false);
 		this.setSize(new Dimension(600, 400));
 	}
-
+	/**
+	 * Metodo que devuelve el JLabel
+	 * @return lblInfo Contendrá informacion sobre la inserción del usuario
+	 */
 	public JLabel getLblInfo() {
 		return lblInfo;
 	}
-
-
-
+	/**
+	 * Metodo que devuelve el JPasswordField con la contraseña para el usuario
+	 * @return jtpswContrasena
+	 */
 	public JPasswordField getJtpswContrasena() {
 		return jtpswContrasena;
 	}
-
+	/**
+	 * Metodo que devuelve el JTextField con el nombre de usuario
+	 * @return jtfNombreUsu contiene el nombre del usuario a crear
+	 */
 	public JTextField getJtfNombreUsu() {
 		return jtfNombreUsu;
 	}
-
+	/**
+	 * JCheckBox que habilita si el usuario va a ser admin
+	 * @return admin para comprobar si se ha marcado y darle permisos
+	 */
 	public JCheckBox getAdmin() {
 		return admin;
-	}
-
-	public JButton getCrear() {
-		return crear;
 	}
 }

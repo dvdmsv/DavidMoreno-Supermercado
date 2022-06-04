@@ -10,18 +10,38 @@ import java.text.DecimalFormatSymbols;
 import supermercado.Supermercado;
 import vista.panelusuario.Caja;
 import vista.panelusuario.VentanaPanelCesta;
-
+/**
+ * Clase que contiene la logica para generar la cesta con los productos seleccionados
+ * @author David
+ *
+ */
 public class ListenerGenerarCesta implements ActionListener{
+	/**
+	 * JPanel que contiene los datos del producto
+	 */
 	private Caja caja;
+	/**
+	 * Clase que contiene los ArrayList con los productos 
+	 */
 	private ListenerSiguienteProducto listenerSiguiente; //Tiene como atributo el listenerSiguienteProducto
+	/**
+	 * Clase que contiene todos los metodos de la aplicacion
+	 */
 	private Supermercado superm = new Supermercado();
 	
-	
+	/**
+	 * Constructor de ListenerGenerarCesta
+	 * @param caja JPanel que contiene los datos del producto
+	 * @param listenerSiguiente Clase que contiene los ArrayList con los productos
+	 */
 	public ListenerGenerarCesta(Caja caja, ListenerSiguienteProducto listenerSiguiente) {
 		this.caja = caja;
 		this.listenerSiguiente = listenerSiguiente;
 	}
-		
+	/**
+	 * 
+	 * Metod que contiene la logica para generar la cesta con los productos que se han ido seleccionando
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		VentanaPanelCesta vpc = new VentanaPanelCesta(listenerSiguiente); //Se instancia VentanaPanelCesta

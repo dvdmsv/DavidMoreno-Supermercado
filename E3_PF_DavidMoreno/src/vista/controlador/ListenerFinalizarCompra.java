@@ -19,23 +19,60 @@ import modelo.PlantillaPDF;
 import supermercado.Supermercado;
 import vista.login.Usuario;
 import vista.panelusuario.VentanaPanelCesta;
-
+/**
+ * Clase que contiene la logica para finalizar la compra, descontar los articulos, generar el ticket y añadirlo a ventas
+ * @author David
+ *
+ */
 public class ListenerFinalizarCompra implements ActionListener{
+	/**
+	 * Plantilla para generar los datos en PDF
+	 */
 	private PlantillaPDF plantilla;
+	/**
+	 * Array que contiene el nombre del producto
+	 */
 	private ArrayList<String> nombreProd = new ArrayList<String>();
+	/**
+	 * Array que contiene la cantidad de producto
+	 */
 	private ArrayList<String> cantidadProd = new ArrayList<String>();
+	/**
+	 * Array que contiene el precio del producto
+	 */
 	private ArrayList<String> precioProd = new ArrayList<String>();
+	/**
+	 * Array que contiene el IVA del producto
+	 */
 	private ArrayList<String> ivaProd = new ArrayList<String>();
+	/**
+	 * Array que contiene el precio total de cada producto
+	 */
 	private ArrayList<String> precTotalProd = new ArrayList<String>();
+	/**
+	 * JFrame con el panel de la cesta
+	 */
 	private VentanaPanelCesta vpc;
+	/**
+	 * Clase que contiene los arrays con el codigo y cantidad de cada producto
+	 */
 	private ListenerSiguienteProducto listenerSiguiente;
+	/**
+	 * Clase que contiene todos los metodos de la aplicacion
+	 */
 	private Supermercado superm = new Supermercado();
-	
+	/**
+	 * 
+	 * @param vpc Clase que contiene los arrays con el codigo y cantidad de cada producto
+	 * @param listenerSiguiente Clase que contiene todos los metodos de la aplicacion
+	 */
 	public ListenerFinalizarCompra(VentanaPanelCesta vpc, ListenerSiguienteProducto listenerSiguiente) {
 		this.vpc = vpc;
 		this.listenerSiguiente = listenerSiguiente;
 	}
-	
+	/**
+	 * Metodo que contiene la logica para finalizar la compra, descontar los articulos, generar el ticket y añadirlo a ventas
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		for(int i=0; i<vpc.getModelo().getRowCount(); i++) { //Bucle que recorre las filas de la tabla

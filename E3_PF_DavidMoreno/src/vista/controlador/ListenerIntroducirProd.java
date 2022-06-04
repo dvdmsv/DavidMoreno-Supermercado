@@ -7,19 +7,33 @@ import java.awt.event.ActionListener;
 
 import supermercado.Supermercado;
 import vista.paneladmin.IntroducirProductos;
-
+/**
+ * Clase que contiene la logica para introducir un producto en la base de datos
+ * @author David
+ *
+ */
 public class ListenerIntroducirProd implements ActionListener{
+	/**
+	 * JPanel que contiene los datos del producto
+	 */
 	private IntroducirProductos introProd;
+	/**
+	 * Clase que contiene todos los metodos de la aplicacion
+	 */
 	private Supermercado superm = new Supermercado();
-	
+	/**
+	 * Constructor de la clase ListenerIntroducirProd
+	 * @param introProd JPanel que contiene los datos del producto
+	 */
 	public ListenerIntroducirProd(IntroducirProductos introProd) {
 		this.introProd = introProd;
 	}
 	
-	
+	/**
+	 * Metodo que contiene la logica para introducir productos en la base de datos
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		//Controlar que los campos tengan texto
 		if(introProd.getJtfNomProd().getText().isEmpty()) {
 			introProd.getLblInfo().setText("Campo nombre esta vacio");

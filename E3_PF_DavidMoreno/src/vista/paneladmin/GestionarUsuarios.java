@@ -9,10 +9,27 @@ import javax.swing.JPanel;
 import vista.controlador.ListenerBotonCrear;
 import vista.controlador.ListenerBotonEliminar;
 import vista.controlador.ListenerBotonModificar;
-
+/**
+ * Clase que contiene el panel para gestionar los usuarios
+ * @author David
+ *
+ */
 public class GestionarUsuarios extends JPanel {
-	private JButton crear, eliminar, modificar;
-	
+	/**
+	 * Boton para desplegar la ventana para crear usuarios
+	 */
+	private JButton crear; 
+	/**
+	 * Boton para desplegar la ventana para eliminar usuarios
+	 */
+	private JButton eliminar; 
+	/**
+	 * Boton para desplegar la ventana para modificar usuarios
+	 */
+	private JButton modificar;
+	/**
+	 * Constructor de la clase GestionarUsuarios
+	 */
 	public GestionarUsuarios() {
 		crear = new JButton("Crear Usuario");
 		eliminar = new JButton("Eliminar Usuario");

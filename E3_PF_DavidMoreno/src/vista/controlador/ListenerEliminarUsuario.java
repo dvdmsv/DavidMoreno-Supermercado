@@ -9,19 +9,32 @@ import javax.swing.JOptionPane;
 
 import supermercado.Supermercado;
 import vista.paneladmin.VentanaPanelEliminarUsuario;
-
+/**
+ * Clase que contiene la logica para eliminar un usuario
+ * @author David
+ *
+ */
 public class ListenerEliminarUsuario implements ActionListener {
+	/**
+	 * Ventana con los datos del usuario
+	 */
 	private VentanaPanelEliminarUsuario vpeu;
+	/**
+	 * Clase que contiene todos los metodos de la aplicacion
+	 */
 	Supermercado superm = new Supermercado();
-	
+	/**
+	 * Constructor de la clase ListenerEliminarUsuario
+	 * @param vpeu Ventana con los datos del usuario
+	 */
 	public ListenerEliminarUsuario(VentanaPanelEliminarUsuario vpeu) {
 		this.vpeu = vpeu;
 	}
-	
+	/**
+	 * Metodo que contiene la logica para eliminar un usuario
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
 		if(superm.buscarUsuario(vpeu.getJtfNombreUsu().getText())){ //Si el usuario existe
 			int confirmado = JOptionPane.showConfirmDialog(null, "Seguro que se quiere eliminar?");
 			if(JOptionPane.OK_OPTION == confirmado) { //Si se confirma la eliminacion
@@ -45,5 +58,4 @@ public class ListenerEliminarUsuario implements ActionListener {
 			vpeu.getJtfNombreUsu().setText("");
 		}
 	}
-
 }

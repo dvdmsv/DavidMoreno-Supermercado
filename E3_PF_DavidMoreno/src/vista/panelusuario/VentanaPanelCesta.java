@@ -17,14 +17,40 @@ import javax.swing.table.TableRowSorter;
 import vista.controlador.ListenerEliminarProdCesta;
 import vista.controlador.ListenerFinalizarCompra;
 import vista.controlador.ListenerSiguienteProducto;
-
+/**
+ * JFrame que contiene la cesta con los productos que se han ido pasando por caja
+ * @author David
+ *
+ */
 public class VentanaPanelCesta extends JFrame {
+	/**
+	 * Tabla que contiene los productos de la cesta
+	 */
 	private JTable tabla;
+	/**
+	 * Modelo con los datos de los productos
+	 */
 	private DefaultTableModel modelo;
+	/**
+	 * Array con los datos de los productos
+	 */
 	Object [] data = new Object[5];
-	private JButton finalizar, eliminar;
+	/**
+	 * Boton para finalizar la compra 
+	 */
+	private JButton finalizar;
+	/**
+	 * Boton para eliminar productos de la tabla
+	 */
+	private JButton eliminar;
+	/**
+	 * JLabel que va indicando el precio total de todos los productos en la tabla
+	 */
 	private JLabel total;
-	
+	/**
+	 * Constructor de VentanaPanelCesta, recibe como parametro ListenerSiguienteProducto
+	 * @param listenerSiguiente
+	 */
 	public VentanaPanelCesta(ListenerSiguienteProducto listenerSiguiente) {
 		super("GALDI -Panel de cesta-");
 		
@@ -68,19 +94,31 @@ public class VentanaPanelCesta extends JFrame {
 		this.setSize(new Dimension(1000, 500));
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	}
-	
+	/**
+	 * Metodo que devuelve el array con los datos de los productos
+	 * @return data
+	 */
 	public Object[] getData() {
 		return data;
 	}
-	
+	/**
+	 * Metodo que devuelve el modelo que contiene los productos en la tabla
+	 * @return modelo
+	 */
 	public DefaultTableModel getModelo() {
 		return modelo;
 	}
-	
+	/**
+	 * Metodo que devuelve el JLabel que informará del precio total de todos los productos en la tabla
+	 * @return total
+	 */
 	public JLabel getTotal() {
 		return total;
 	}
-	
+	/**
+	 * Metodo que devuelve la tabla
+	 * @return tabla
+	 */
 	public JTable getTabla() {
 		return tabla;
 	}

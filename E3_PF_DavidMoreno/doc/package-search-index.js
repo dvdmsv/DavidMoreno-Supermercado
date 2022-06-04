@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"conectar"},{"l":"modelo"},{"l":"supermercado"},{"l":"vista.controlador"},{"l":"vista.login"},{"l":"vista.paneladmin"},{"l":"vista.panelusuario"}];updateSearchResults();

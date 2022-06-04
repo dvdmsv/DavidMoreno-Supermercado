@@ -14,12 +14,35 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import vista.controlador.ListenerBuscarProducto;
-
+/**
+ * Clase que contiene el JPanel encargado de buscar el inventario
+ * @author David
+ *
+ */
 public class Inventario extends JPanel {
-	private JLabel nomProd, infoProd;
+	/**
+	 * JLabel que indica el nombre del producto
+	 */
+	private JLabel nomProd;
+	/**
+	 * JTextField que almacenará el nombre del campo que se quiere buscar
+	 */
 	private JTextField jtfNomProd;
-	private JButton buscarNom, buscarCod, buscarFam;
-	
+	/**
+	 * Boton para buscar por nombre
+	 */
+	private JButton buscarNom;
+	/**
+	 * Boton para buscar por codigo
+	 */
+	private JButton buscarCod;
+	/**
+	 * Boton para buscar por familia
+	 */
+	private JButton buscarFam;
+	/**
+	 * Constructor de Inventario
+	 */
 	public Inventario() {
 		nomProd = new JLabel("Producto");
 		jtfNomProd = new JTextField("");
@@ -27,26 +50,27 @@ public class Inventario extends JPanel {
 		buscarCod = new JButton("Buscar producto por codigo");
 		buscarFam = new JButton("Buscar producto por familia");
 		
+		buscarNom.addActionListener(new ListenerBuscarProducto(this, 1));
+		buscarCod.addActionListener(new ListenerBuscarProducto(this, 2));
+		buscarFam.addActionListener(new ListenerBuscarProducto(this, 3));
+		
 		
 		this.add(nomProd);
 		this.add(jtfNomProd);
 		this.add(buscarNom);
 		this.add(buscarCod);
 		this.add(buscarFam);
-		buscarNom.addActionListener(new ListenerBuscarProducto(this, 1));
-		buscarCod.addActionListener(new ListenerBuscarProducto(this, 2));
-		buscarFam.addActionListener(new ListenerBuscarProducto(this, 3));
 		
 		
 		this.setLayout(new GridLayout(5,1));
 		this.setPreferredSize(new Dimension(800,200));
 		this.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
 	}
-
-	public JLabel getInfoProd() {
-		return infoProd;
-	}
-
+	
+	/**
+	 * Metodo que devuelve el JTextField con lo que se quiere consultar
+	 * @return jtfNomProd
+	 */
 	public JTextField getJtfNomProd() {
 		return jtfNomProd;
 	}

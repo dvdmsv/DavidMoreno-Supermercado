@@ -180,6 +180,25 @@ public class UsuarioDAO {
 			conn.desconectar();
 		}
 	}
+	
+	public int getCodUsuarioBD(String nom) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		int codUsu = 0;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT NUMERO_EMPLEADO FROM usuarios WHERE NOMBRE_USUARIO like ?;");
+			preparedStatement.setString(1, nom);
+			ResultSet resultado = preparedStatement.executeQuery();
+			while(resultado.next()) {
+				return codUsu = resultado.getInt(1);
+			}
+		}catch(Exception e) {
+			System.out.println("Error al buscar: " + e);
+		}finally {
+			conn.desconectar();
+		}
+		return codUsu;
+	}
 
 	public UsuarioDTO getUsuDTO(String nom) {
 		return usuDTO;

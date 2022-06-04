@@ -2,15 +2,22 @@ package vista.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import com.itextpdf.text.List;
+import com.itextpdf.text.pdf.AcroFields;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
 
 import modelo.PlantillaPDF;
 import supermercado.Supermercado;
+import vista.login.Usuario;
 import vista.panelusuario.VentanaPanelCesta;
 
 public class ListenerFinalizarCompra implements ActionListener{
@@ -49,8 +56,7 @@ public class ListenerFinalizarCompra implements ActionListener{
 		
 		
 		for(int i=0; i<nombreProd.size(); i++) {
-			//superm.anadirVenta(listenerSiguiente.getCodProd().get(i), nombreProd.get(i), listenerSiguiente.getCantProd().get(i), "2020", "0");
-			System.out.println(listenerSiguiente.getCodProd().get(i) + nombreProd.get(i) + listenerSiguiente.getCantProd().get(i) + LocalDate.now().toString() + "0");
+			superm.anadirVenta(Integer.parseInt(listenerSiguiente.getCodProd().get(i)), nombreProd.get(i), Integer.parseInt(listenerSiguiente.getCantProd().get(i)), LocalDate.now().toString(), superm.getCodUsu(Usuario.getUsuarioLogueado()));
 		}
 		
 		int tamanoListaCesta = listenerSiguiente.getCodProd().size(); //Se tiene que guardar el tamaño del array antes de eliminar elementos del mismo porque si no al iterar sobre el va disminuyendo su tamaño y no elimina bien
@@ -62,5 +68,4 @@ public class ListenerFinalizarCompra implements ActionListener{
 		
 		vpc.dispose();
 	}
-
 }

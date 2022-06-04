@@ -7,11 +7,23 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-
+/**
+ * Clase que crea una ventana sobre la cual los usuarios se loguearan
+ * @author David
+ *
+ */
 public class VentanaLogin extends JFrame {
+	/**
+	 * JPanel que contiene el login
+	 */
 	private PanelLogin pl = new PanelLogin(this);
+	/**
+	 * JPanel que contiene la imagen de fondo
+	 */
 	private FondoImagen fondo = new FondoImagen();
-	
+	/**
+	 * Constructor de la ventana para loguearse
+	 */
 	public VentanaLogin() {
 		super("GALDI -Login-");
 		
@@ -26,11 +38,5 @@ public class VentanaLogin extends JFrame {
 		
 		this.getContentPane().add(pl);
 		this.pack();
-		
-		
-	}
-	
-	public void cerrarVentana() {
-		this.dispose();
 	}
 }

@@ -44,6 +44,25 @@ public class InventarioDAO {
 		}
 	}
 	
+	public int getCodProdBD(String nom) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		int cod = 0;
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("SELECT CODIGO_PRODUCTO from inventario WHERE NOMBRE_PRODUCTO=?;");
+			preparedStatement.setString(1, nom);
+			ResultSet resultado = preparedStatement.executeQuery();
+			while(resultado.next()) {
+				cod = resultado.getInt(1);
+			}
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
+		return cod;
+	}
+	
 	public void buscarProductoPorCodBD(String cod, VentanaPanelCesta vpc) { //Recibe un codigo, el JFrame de VentanaPanelCesta
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();
@@ -111,10 +130,9 @@ public class InventarioDAO {
 		Conectar conn = new Conectar();
 		int stock = 0;
 		try {
-			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO = ?;");
+			preparedStatement = conn.getConnect().prepareStatement("SELECT CANTIDAD_PRODUCTO FROM inventario WHERE CODIGO_PRODUCTO =?;");
 			preparedStatement.setString(1, cod);
 			ResultSet resultado = preparedStatement.executeQuery();
-			//stock = resultado.getInt(1);
 			while(resultado.next()) {
 				stock = resultado.getInt(1);
 			}
@@ -158,9 +176,18 @@ public class InventarioDAO {
 		}
 	}
 	
-	public void descontarStock(String nom) {
-		
+	public void cambiarStockBD(int cantid, String cod) {
+		PreparedStatement preparedStatement;
+		Conectar conn = new Conectar();
+		try {
+			preparedStatement = conn.getConnect().prepareStatement("UPDATE inventario SET CANTIDAD_PRODUCTO=? WHERE CODIGO_PRODUCTO=?;");
+			preparedStatement.setInt(1, cantid);
+			preparedStatement.setString(2, cod);
+			preparedStatement.executeUpdate();
+		}catch(Exception e) {
+			
+		}finally {
+			conn.desconectar();
+		}
 	}
-	
-	
 }

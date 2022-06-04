@@ -9,6 +9,7 @@ import conectar.UsuarioDAO;
 import conectar.VentasDAO;
 import modelo.InventarioDTO;
 import modelo.UsuarioDTO;
+import modelo.VentasDTO;
 import vista.login.VentanaLogin;
 import vista.panelusuario.VentanaPanelCesta;
 import vista.panelusuario.VentanaPanelInventario;
@@ -106,14 +107,23 @@ public class Supermercado {
 		invDAO.eliminarProductoBD(cod);
 	}
 	
-	
-	
 	public int stockDisponible(String nom) {
 		return invDAO.stockDisponibleBD(nom);
 	}
 	
-	public void anadirVenta() {
-		venDAO.anadirVentaBD(5, "pollo", "carnes", 5, "2022-05-10", 1000);
+	public void descontarStock(int cantid, String cod) {
+		int stockFinal = invDAO.stockDisponibleBD(cod) - cantid;
+		invDAO.cambiarStockBD(stockFinal, cod);
+		
+	}
+	
+	public int getCodProd(String nomProd) {
+		return invDAO.getCodProdBD(nomProd);
+	}
+	
+	public void anadirVenta(String codProducto, String nomProducto, String cantidVendida, String fechaVenta, String numEmpleado) {
+		VentasDTO venDTO = new VentasDTO(0, codProducto, nomProducto, cantidVendida, fechaVenta, numEmpleado);
+		venDAO.anadirVentaBD(venDTO);
 	}
 	
 	public boolean usuarioExiste(String nomUsu) {

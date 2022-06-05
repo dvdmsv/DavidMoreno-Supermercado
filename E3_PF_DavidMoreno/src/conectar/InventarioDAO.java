@@ -2,8 +2,6 @@ package conectar;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-
 import modelo.InventarioDTO;
 import vista.panelusuario.VentanaPanelCesta;
 import vista.panelusuario.VentanaPanelInventario;

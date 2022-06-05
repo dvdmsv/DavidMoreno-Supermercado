@@ -6,9 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import supermercado.Supermercado;
-import vista.login.VentanaLogin;
-import vista.paneladmin.VentanaPanelAdmin;
-import vista.panelusuario.VentanaPanelUsuario;
 /**
  * Clase con la logica para cerrar sesion
  * @author David

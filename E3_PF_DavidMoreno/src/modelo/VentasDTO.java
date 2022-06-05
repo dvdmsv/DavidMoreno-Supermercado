@@ -1,6 +1,4 @@
 package modelo;
-
-import java.sql.Date;
 /**
  * Clase que crea el objeto VentasDTO
  * @author David

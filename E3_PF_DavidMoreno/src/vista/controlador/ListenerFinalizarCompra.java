@@ -2,18 +2,11 @@ package vista.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileOutputStream;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import com.itextpdf.text.List;
-import com.itextpdf.text.pdf.AcroFields;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
 
 import modelo.PlantillaPDF;
 import supermercado.Supermercado;
@@ -88,9 +81,8 @@ public class ListenerFinalizarCompra implements ActionListener{
 			superm.descontarStock(Integer.parseInt(cantidadProd.get(i)), listenerSiguiente.getCodProd().get(i));
 		}
 		
-		PlantillaPDF pl1 = new PlantillaPDF(nombreProd, cantidadProd, precioProd, ivaProd, precTotalProd, vpc.getTotal().getText());
-		pl1.crearPlantilla();
-		
+		plantilla = new PlantillaPDF(nombreProd, cantidadProd, precioProd, ivaProd, precTotalProd, vpc.getTotal().getText());
+		plantilla.crearPlantilla();
 		
 		for(int i=0; i<nombreProd.size(); i++) {
 			superm.anadirVenta(Integer.parseInt(listenerSiguiente.getCodProd().get(i)), nombreProd.get(i), Integer.parseInt(listenerSiguiente.getCantProd().get(i)), LocalDate.now().toString(), superm.getCodUsu(Usuario.getUsuarioLogueado()));

@@ -1,24 +1,17 @@
 package modelo;
 
 import java.io.FileOutputStream;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-import java.awt.Graphics;
-import java.awt.Image;
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import vista.login.Usuario;
-import vista.login.VentanaLogin;
 /**
  * Clase que contiene la plantilla para generar el ticket
  * @author David

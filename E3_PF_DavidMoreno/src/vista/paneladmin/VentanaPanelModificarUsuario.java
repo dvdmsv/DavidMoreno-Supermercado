@@ -3,7 +3,6 @@ package vista.paneladmin;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 /**
  * Clase que contiene la ventana con el panel para modificar usuarios

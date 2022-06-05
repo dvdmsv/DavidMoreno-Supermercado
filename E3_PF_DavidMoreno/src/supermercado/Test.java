@@ -1,6 +1,4 @@
 package supermercado;
-
-import vista.paneladmin.VentanaPanelAdmin;
 /**
  * Clase que contiene el Main para ejecutar la aplicacion
  * @author David
@@ -15,5 +13,4 @@ public class Test {
 		Supermercado superm = new Supermercado();
 		superm.login();
 	}
-
 }

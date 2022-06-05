@@ -64,5 +64,4 @@ public class ListenerModificarContra implements ActionListener{
 			pdmu.getJtfNom().setText("");
 		}
 	}
-
 }

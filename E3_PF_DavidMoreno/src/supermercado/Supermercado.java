@@ -2,7 +2,6 @@ package supermercado;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
-import java.util.ArrayList;
 
 import conectar.InventarioDAO;
 import conectar.UsuarioDAO;

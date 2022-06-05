@@ -5,7 +5,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import vista.controlador.ListenerCerrarSesion;
-import vista.paneladmin.VentanaPanelAdmin;
 /**
  * Clase que contiene un JMenuBar para cerrar sesion en la aplicacion
  * @author David

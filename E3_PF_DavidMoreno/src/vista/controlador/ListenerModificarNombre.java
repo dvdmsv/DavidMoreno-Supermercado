@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import supermercado.Supermercado;
-import vista.paneladmin.PanelBotonesModificarUsuario;
 import vista.paneladmin.PanelDatosModificarUsuario;
 /**
  * Clase que contiene la logica para modificar el nombre de un usuario

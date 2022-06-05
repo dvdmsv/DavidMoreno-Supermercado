@@ -46,6 +46,8 @@ public class ListenerSiguienteProducto implements ActionListener{
 			if(codProd.contains(caja.getJtfCodProd().getText())) { //Comprueba si el producto ya está en el arraylist
 				caja.getLblInfo().setText("El producto ya esta en la cesta");
 				caja.getLblInfo().setForeground(Color.red);
+				caja.getJtfCodProd().setText("");
+				caja.getJtfCantidadProd().setText("");
 			}else { //Si el producto no está en el arraylist
 				if(caja.getJtfCantidadProd().getText().isEmpty() || caja.getJtfCantidadProd().getText().equals("0") || !superm.isInt(caja.getJtfCantidadProd().getText())) { //Da error si el campo cantidad esta vacio o si es igual a 0 o si no es un numero entero
 					caja.getLblInfo().setText("Introducir cantidad correcta");
@@ -65,7 +67,7 @@ public class ListenerSiguienteProducto implements ActionListener{
 						caja.getLblInfo().setText("STOCK INSUFICIENTE. STOCK DISPONIBLE: " + superm.stockDisponible(caja.getJtfCodProd().getText()));
 						caja.getLblInfo().setForeground(Color.red);
 						caja.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
-						caja.getJtfCodProd().setText("");
+						caja.getJtfCantidadProd().setText("");
 					}
 				}	
 			}

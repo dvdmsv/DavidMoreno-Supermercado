@@ -91,7 +91,21 @@ INSERT INTO INVENTARIO VALUES(NULL, "Dentrifico anticaries", "Higiene", 20, 3.45
 INSERT INTO INVENTARIO VALUES(NULL, "Espuma de afeitar 250ml", "Higiene", 20, 0.71, 1.10);
 INSERT INTO INVENTARIO VALUES(NULL, "Preservativo natural 12 ud", "Higiene", 20, 6.99, 1.10);
 
+INSERT INTO INVENTARIO VALUES(NULL, "12 Pilas AAA", "Electronica", 50, 6.99, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "12 Pilas AA", "Electronica", 50, 7.99, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "Auriculares", "Electronica", 25, 8.99, 1.21);
 
+INSERT INTO INVENTARIO VALUES(NULL, "Pelotas de tenis", "Deportes", 25, 4.99, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "Balon de futbol", "Deportes", 25, 9.99, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "Camara bici 29", "Deportes", 25, 8.99, 1.21);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Chandal Nike", "Moda y accesorios", 25, 69.85, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "Gafas de sol", "Moda y accesorios", 25, 29.99, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "Playeras", "Moda y accesorios", 25, 40, 1.21);
+
+INSERT INTO INVENTARIO VALUES(NULL, "Boli bic", "Papeleria", 25, 2, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "500 hojas", "Papeleria", 25, 8, 1.21);
+INSERT INTO INVENTARIO VALUES(NULL, "Cuaderno", "Papeleria", 25, 4, 1.21);
 
 
 

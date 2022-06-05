@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import modelo.VentasDTO;
 import vista.paneladmin.VentanaPanelVentas;
 /**
- * Clase que contiene las consultas a la base de datos
+ * Clase que contiene las consultas a la base de datos de Ventas
  * @author David
  *
  */

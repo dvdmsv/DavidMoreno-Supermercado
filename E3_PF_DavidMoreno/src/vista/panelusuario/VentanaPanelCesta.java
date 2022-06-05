@@ -49,7 +49,7 @@ public class VentanaPanelCesta extends JFrame {
 	private JLabel total;
 	/**
 	 * Constructor de VentanaPanelCesta, recibe como parametro ListenerSiguienteProducto
-	 * @param listenerSiguiente
+	 * @param listenerSiguiente Clase que contiene los productos que se han ido pasando por caja
 	 */
 	public VentanaPanelCesta(ListenerSiguienteProducto listenerSiguiente) {
 		super("GALDI -Panel de cesta-");

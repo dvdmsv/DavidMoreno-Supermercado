@@ -236,18 +236,6 @@ public class Supermercado {
 		venDAO.anadirVentaBD(venDTO);
 	}
 	/**
-	 * Metodo que comprueba si un usuario existe
-	 * @param nomUsu nombre de usuario
-	 * @return boolean si existe o no
-	 */
-	public boolean usuarioExiste(String nomUsu) {
-		if(usuDAO.usuarioExisteBD(nomUsu)) {
-			return true;
-		}else {
-			return false;
-		}
-	}
-	/**
 	 * Metodo que busca una venta en la tabla
 	 * @param nom nombre del dato a buscar
 	 * @param vpv panel ventas

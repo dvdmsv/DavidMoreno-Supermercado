@@ -7,7 +7,10 @@ import vista.paneladmin.VentanaPanelAdmin;
  *
  */
 public class Test {
-
+	/**
+	 * Metodo main para ejecutar la aplicacion
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Supermercado superm = new Supermercado();
 		superm.login();

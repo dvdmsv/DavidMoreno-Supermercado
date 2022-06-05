@@ -7,11 +7,23 @@ import java.util.ArrayList;
 import modelo.InventarioDTO;
 import vista.panelusuario.VentanaPanelCesta;
 import vista.panelusuario.VentanaPanelInventario;
-
+/**
+ * Clase que contiene lasconsultas de la base de datos de Inventario
+ * @author David
+ *
+ */
 public class InventarioDAO {
+	/**
+	 * Objeto InventarioDTO
+	 */
 	InventarioDTO invDTO = new InventarioDTO();
 	
-	
+	/**
+	 * Metodo encargado de buscar un producto en la base de datos
+	 * @param nom nombre del campo a buscar
+	 * @param vpi panel de inventario
+	 * @param tipoBusqueda tipo de busqueda a realizar
+	 */
 	public void buscarProductoBD(String nom, VentanaPanelInventario vpi, int tipoBusqueda) { //Recibe un nombre, el JFrame de VentanaPanelInventario y un int indicando el tipo de busqueda a realizar
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();
@@ -43,7 +55,11 @@ public class InventarioDAO {
 			conn.desconectar();
 		}
 	}
-	
+	/**
+	 * Metodo que obtiene el codigo de un producto por su nombre
+	 * @param nom nombre del producto
+	 * @return cod codigo del producto
+	 */
 	public int getCodProdBD(String nom) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
@@ -62,7 +78,11 @@ public class InventarioDAO {
 		}
 		return cod;
 	}
-	
+	/**
+	 * Metodo que bucsca un producto por su codigo
+	 * @param cod codigo del producto
+	 * @param vpc panel de la cesta
+	 */
 	public void buscarProductoPorCodBD(String cod, VentanaPanelCesta vpc) { //Recibe un codigo, el JFrame de VentanaPanelCesta
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();
@@ -84,7 +104,11 @@ public class InventarioDAO {
 			conn.desconectar();
 		}
 	}
-	
+	/**
+	 * Metodo que comprueba si un producto existe en la base de datos por su codigo
+	 * @param cod codigo del producto
+	 * @return boolean si existe o no
+	 */
 	public boolean productoExisteBD(String cod) {
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();
@@ -104,7 +128,11 @@ public class InventarioDAO {
 		}
 		return existe;
 	}
-	
+	/**
+	 * Metodo que comprueba si un producto existe en la base de datos por su nombre
+	 * @param nomProd nombre del producto
+	 * @return boolean si existe o no
+	 */
 	public boolean productoExistePorNomBD(String nomProd) {
 		PreparedStatement preparedStatement = null;
 		Conectar conn = new Conectar();
@@ -124,7 +152,11 @@ public class InventarioDAO {
 		}
 		return existe;
 	}
-	
+	/**
+	 * Metodo que devuelve el stock disponible de un producto en la base de datos según su codigo
+	 * @param cod codigo del producto
+	 * @return stock cantidad disponible del producto
+	 */
 	public int stockDisponibleBD(String cod) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
@@ -143,7 +175,10 @@ public class InventarioDAO {
 		}
 		return stock;
 	}
-	
+	/**
+	 * Metodo que crea un producto en la base de datos
+	 * @param prod objeto InventarioDTO
+	 */
 	public void crearProductoBD(InventarioDTO prod) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
@@ -161,7 +196,10 @@ public class InventarioDAO {
 			conn.desconectar();
 		}
 	}
-	
+	/**
+	 * Metodo que elimina un producto de la base de datos segun su codigo
+	 * @param cod codigo del producto
+	 */
 	public void eliminarProductoBD(String cod) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();
@@ -175,7 +213,11 @@ public class InventarioDAO {
 			conn.desconectar();
 		}
 	}
-	
+	/**
+	 * Metodo que cambia el stock de un producto en la base de datos
+	 * @param cantid cantidad de stock a fijar
+	 * @param cod codigo del producto
+	 */
 	public void cambiarStockBD(int cantid, String cod) {
 		PreparedStatement preparedStatement;
 		Conectar conn = new Conectar();

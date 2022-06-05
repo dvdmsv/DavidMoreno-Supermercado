@@ -54,7 +54,7 @@ public class Usuario extends JPanel{
 	}
 	/**
 	 * Metodo que establece que usuario se ha logueado
-	 * @param usuarioLogueado 
+	 * @param usuarioLogueado usuario que se ha logueado en el programa
 	 */
 	public static void setUsuarioLogueado(String usuarioLogueado) {
 		Usuario.usuarioLogueado = usuarioLogueado;

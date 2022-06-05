@@ -19,7 +19,9 @@ public class VentanaPanelModificarUsuario extends JFrame{
 	 * JPanel con los botones para modificar al usuario
 	 */
 	private PanelBotonesModificarUsuario pbmu;
-	
+	/**
+	 * Constructor de la clase VentanaPanelModificarUsuario
+	 */
 	public VentanaPanelModificarUsuario() {
 		super("GALDI -Modificar Usuario-");
 		pdmu = new PanelDatosModificarUsuario();

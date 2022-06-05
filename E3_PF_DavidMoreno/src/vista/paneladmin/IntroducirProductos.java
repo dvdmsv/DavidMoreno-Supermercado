@@ -69,7 +69,9 @@ public class IntroducirProductos extends JPanel{
 	 * JComboBox de opciones con el IVA de productos
 	 */
 	private JComboBox<String> jcIVAProd;
-	
+	/**
+	 * Constructod de la clase IntroducirProductos
+	 */
 	public IntroducirProductos() {
 		lblNomProd = new JLabel("Nombre del producto");
 		lblFamProd = new JLabel("Familia del producto");

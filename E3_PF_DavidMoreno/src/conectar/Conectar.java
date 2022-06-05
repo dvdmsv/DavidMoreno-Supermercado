@@ -50,7 +50,7 @@ public class Conectar {
 			 if(connect == null) {
 				 System.out.println("Conexion no establecida");
 			 }else {
-				// System.out.println("Conexion establecida");
+				//System.out.println("Conexion establecida");
 			 }
 		 }catch(Exception e) {
 			 System.out.println("Conexion no establecida");

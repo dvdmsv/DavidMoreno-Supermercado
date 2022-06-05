@@ -40,10 +40,16 @@ public class ListenerCrearUsuario implements ActionListener{
 		if(vpcu.getAdmin().isSelected()) { //Si el checkbox está marcado 
 			admin = "T"; //El usuario admnistrador se cambia a T
 		}
-		if(superm.buscarUsuario(nom)) { //Si el usuario existe
-			vpcu.getLblInfo().setText("El usuario ya existe"); //Se indica que ya existe
+		if(superm.buscarUsuario(nom) || vpcu.getJtfNombreUsu().getText().isEmpty()) { //Si el usuario existe
+			vpcu.getLblInfo().setText("El usuario ya existe o está vacio"); //Se indica que ya existe
 			vpcu.getLblInfo().setForeground(Color.red);
-			vpcu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 20));
+			vpcu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
+			vpcu.getJtfNombreUsu().setText("");
+			vpcu.getJtpswContrasena().setText("");
+		}else if( vpcu.getJtpswContrasena().getText().isEmpty()) {
+			vpcu.getLblInfo().setText("No se ha indicado contrasena");
+			vpcu.getLblInfo().setForeground(Color.red);
+			vpcu.getLblInfo().setFont(new Font("Serif", Font.PLAIN, 15));
 			vpcu.getJtfNombreUsu().setText("");
 			vpcu.getJtpswContrasena().setText("");
 		}else { //Si no existe se crea

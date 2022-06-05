@@ -29,7 +29,7 @@ INSERT INTO USUARIOS VALUES("user", NULL, "ee11cbb19052e40b07aac0ca060c23ee", "F
 INSERT INTO USUARIOS VALUES("davidmoreno", NULL, "649fc7528c84ad280d43ad12310217f0", "F");
 
 /*IVA Superreducido*/
-INSERT INTO INVENTARIO VALUES(NULL, "Docena de Huevos", "Frescos", 0, 5.55, 1.04);
+INSERT INTO INVENTARIO VALUES(NULL, "Docena de Huevos", "Frescos", 3, 5.55, 1.04);
 INSERT INTO INVENTARIO VALUES(NULL, "Docena de Huevos XL", "Frescos", 20, 6.55, 1.04);
 INSERT INTO INVENTARIO VALUES(NULL, "Docena de Huevos Codorniz", "Frescos", 20, 6.55, 1.04);
 

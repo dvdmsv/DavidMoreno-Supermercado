@@ -17,7 +17,7 @@ public class VentanaPanelUsuario extends JFrame{
 	/**
 	 * JMenuBar que contiene un boton para cerrar sesion
 	 */
-	private JMenuBar menu;
+	private CerrarSesion menu;
 	/**
 	 * Constructor de VentanaPanelUsuario
 	 */
